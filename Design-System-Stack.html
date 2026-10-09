@@ -815,6 +815,14 @@
       </div>
     </div>
 
+    <h3 class="sub reveal">Como o padrão é construído</h3>
+    <div class="cells reveal">
+      <div class="cell-tile"><svg viewBox="0 0 120 120"><rect x="20" y="20" width="80" height="80" fill="#E7FF00"/></svg><b>Célula cheia</b><small>85% ou mais das células preenchidas</small></div>
+      <div class="cell-tile"><svg viewBox="0 0 120 120"><path d="M20 100 V20 H100 A80 80 0 0 1 20 100 Z" fill="#E7FF00"/></svg><b>Quarto de círculo</b><small>Até 15% das células, raio = célula, canto aleatório</small></div>
+      <div class="cell-tile"><svg viewBox="0 0 120 120"><rect x="4" y="42" width="112" height="36" fill="#E7FF00"/></svg><b>Barra</b><small>2–3 células fundidas na horizontal; no máximo 1 a cada 10</small></div>
+      <div class="cell-tile"><svg viewBox="0 0 120 120"><rect x="12" y="12" width="40" height="40" fill="#E7FF00"/><rect x="68" y="12" width="40" height="40" fill="#E7FF00"/><rect x="12" y="68" width="40" height="40" fill="#E7FF00"/><rect x="68" y="68" width="40" height="40" fill="#E7FF00" opacity=".35"/></svg><b>Vão</b><small>Vão = 1/4 da célula; a densidade cai da base para o topo</small></div>
+    </div>
+
     <h3 class="sub reveal">Tokens de forma</h3>
     <div class="tok-grid reveal">
       <div class="tok">
@@ -831,16 +839,6 @@
         <div class="sp-row"><span class="v">--sp-32 · 128</span><span class="bar" style="width:128px"></span></div>
       </div>
       <div style="display:grid;gap:16px">
-        <div class="tok">
-          <h4>Raios</h4>
-          <div class="rd-row">
-            <div class="rd"><div style="border-radius:0"></div>peça · 0</div>
-            <div class="rd"><div style="border-radius:0"></div>botão · 0</div>
-            <div class="rd"><div style="border-radius:0"></div>card · 0</div>
-            <div class="rd"><div style="border-radius:4px"></div>campo · 4</div>
-            <div class="rd"><div style="border-radius:50%;width:64px"></div>avatar · 50%</div>
-          </div>
-        </div>
         <div class="tok">
           <h4>Elevação e separação</h4>
           <div class="sh-row">
