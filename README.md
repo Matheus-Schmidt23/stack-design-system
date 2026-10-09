@@ -8,6 +8,8 @@ Design system da Stack by PM3 & Alura: logo, cores, tipografia, grid e grafismo 
 |---|---|
 | `Design-System-Stack.html` | Guia web completo, **autossuficiente** (imagens embutidas) e com tela de login. Abra direto no navegador. |
 | `Design-System-Stack.pdf` | Versão em PDF do guia web (impressão em página longa, 1280 px de largura). |
+| `Design-System-Stack-16x9.pdf` | Apresentação resumida em 10 slides 16:9 (1920 × 1080). |
+| `Design-System-Stack-16x9.html` | Fonte dos slides (autossuficiente; exportada a PDF via Chrome headless). |
 | `Design-System-Stack.fonte.html` | Fonte editável do guia web (usa a pasta `assets/`). |
 | `assets/` | Logos (SVG, nas três cores e nos três arranjos), padrões de pixels (PNG) e key visual de cubos. |
 

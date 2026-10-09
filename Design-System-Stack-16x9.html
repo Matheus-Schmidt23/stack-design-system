@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Design System — Stack · Apresentação 16:9</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#000;--lime:#E7FF00;--white:#fff;--grey:#898989;--dark:#121212;--raised:#1C1C1C;--off:#F0F0EA;--ink:#000;--ink-2:#444;--line-d:rgba(255,255,255,.14);--line-l:rgba(0,0,0,.12);--on-dark-2:rgba(255,255,255,.68);--font:"Roboto",system-ui,sans-serif;--mono:"Roboto Mono",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#333;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,p{margin:0;text-wrap:balance}
+  p,li{text-wrap:pretty}
+  .sprite{position:absolute;width:0;height:0;overflow:hidden}
+  svg{display:block}
+  .lg{height:40px;width:auto;--wm:currentColor;--sig:currentColor}
+  .lg.two{--wm:var(--lime);--sig:#fff}
+
+  .slide{width:1920px;height:1080px;position:relative;overflow:hidden;background:#fff;margin:0 auto 24px;padding:96px 120px;display:flex;flex-direction:column}
+  .slide.dark{background:var(--dark);color:#fff}
+  .slide.black{background:#000;color:#fff}
+  .slide.off{background:var(--off)}
+  .kicker{font-weight:700;font-size:20px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  .kicker .num{font-family:var(--mono);font-weight:500;letter-spacing:0;font-size:19px;color:var(--lime);background:#000;padding:6px 12px}
+  .dark .kicker,.black .kicker{color:var(--lime)}
+  .dark .kicker .num,.black .kicker .num{background:var(--lime);color:#000}
+  h2.title{font-weight:900;font-size:84px;line-height:1;letter-spacing:-.03em;margin-bottom:22px}
+  .lead{font-size:26px;line-height:1.45;max-width:62ch;color:var(--ink-2)}
+  .dark .lead,.black .lead{color:var(--on-dark-2)}
+  .foot{position:absolute;left:120px;right:120px;bottom:48px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+  .foot svg{height:22px;width:auto;color:#000}
+  .dark .foot svg,.black .foot svg{color:var(--lime)}
+  .body{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .lm{color:var(--lime)}
+  .mk{background:linear-gradient(transparent 58%,var(--lime) 58%);padding:0 .06em}
+  .pat{position:absolute;left:0;right:0;bottom:0;line-height:0;pointer-events:none}
+  .pat svg{width:100%;height:auto}
+
+  /* cards */
+  .grid{display:grid;gap:20px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:#fff;border:1px solid var(--line-l);padding:24px 28px}
+  .card h3{font-size:26px;font-weight:700;margin-bottom:10px}
+  .card p{font-size:18px;line-height:1.4;color:var(--ink-2)}
+  .card .idx{font-family:var(--mono);font-weight:500;font-size:17px;color:#000;background:var(--lime);display:inline-block;padding:5px 10px;margin-bottom:16px}
+  .card.blk{background:#000;border-color:#000;color:#fff}
+  .card.blk p{color:var(--on-dark-2)}
+  .card.blk .idx{background:var(--lime)}
+  .dark .card,.black .card{background:var(--raised);border-color:var(--line-d);color:#fff}
+  .dark .card p,.black .card p{color:var(--on-dark-2)}
+  .quote{background:#000;color:#fff;padding:28px 44px;border-left:16px solid var(--lime);margin-top:20px}
+  .quote p{font-weight:900;font-size:40px;line-height:1.05;letter-spacing:-.03em}
+  .quote small{display:block;margin-top:14px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+
+  /* logo */
+  .logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+  .logo-tile{height:212px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:20px}
+  .logo-tile svg{height:52px;width:auto}
+  .logo-tile.stk svg{height:100px}
+  .logo-tile.lk svg{height:78px}
+  .logo-tile small{font-size:16px;font-weight:600;opacity:.75;text-align:center;text-wrap:balance}
+  .lt-black{background:#000;color:#fff}.lt-dark{background:var(--dark);color:#fff}.lt-white{background:#fff;color:#000}.lt-lime{background:var(--lime);color:#000}.lt-grey{background:var(--grey);color:#000}
+  .cs-box{position:relative;border:2px dashed var(--lime);padding:56px 64px;display:inline-block}
+  .cs-box svg{height:64px;width:auto;color:var(--lime);outline:1px solid rgba(255,255,255,.25)}
+  .cs-box i{position:absolute;font-style:normal;font-family:var(--mono);font-size:16px;color:#000;background:var(--lime);padding:2px 9px;line-height:1.4}
+  .cs-box .xt{top:10px;left:50%;transform:translateX(-50%)}.cs-box .xl{left:10px;top:50%;transform:translateY(-50%)}.cs-box .xr{right:10px;top:50%;transform:translateY(-50%)}.cs-box .xb{bottom:10px;left:50%;transform:translateX(-50%)}
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .dd > div{padding:28px 32px;background:var(--raised);border:1px solid var(--line-d)}
+  .dd h4{font-size:17px;margin-bottom:14px;letter-spacing:.12em;text-transform:uppercase}
+  .dd .ok h4{color:var(--lime)}.dd .no h4{color:#ff8a8a}
+  .dd ul{list-style:none;margin:0;padding:0}
+  .dd li{font-size:20px;color:#ddd;padding:11px 0 11px 26px;position:relative;border-top:1px solid var(--line-d);line-height:1.35}
+  .dd li:first-child{border-top:none}
+  .dd li::before{content:'';position:absolute;left:0;top:21px;width:12px;height:2px;background:var(--lime)}
+  .dd .no li::before{background:#ff8a8a}
+  .wrong{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+  .wrong > div{background:#fff;height:150px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .wrong svg{height:32px;width:auto}
+  .wrong span{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:14px;font-weight:700;color:#c0283a;letter-spacing:.06em;text-transform:uppercase}
+  .wrong .x{position:absolute;top:10px;right:14px;color:#c0283a;font-weight:900;font-size:22px}
+
+  /* cores */
+  .sw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .sw{min-height:250px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;border:1px solid transparent}
+  .sw.light{color:#000}.sw.bordered{border-color:var(--line-l)}
+  .sw .nm{font-weight:800;font-size:28px;line-height:1.1}
+  .sw .role{font-size:17px;opacity:.8;margin-top:8px;line-height:1.35}
+  .sw .codes{font-size:15px;line-height:1.7;font-family:var(--mono)}
+  .sw .codes b{opacity:.6;font-weight:500;margin-right:6px}
+  .proportion{display:flex;height:72px;overflow:hidden;margin-top:24px;border:1px solid var(--line-l)}
+  .proportion div{display:flex;align-items:flex-end;padding:12px 14px;font-size:16px;font-weight:700}
+
+  /* tipografia */
+  .fam{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+  .fam .label{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .fam .big{font-size:68px;line-height:1;margin:6px 0 12px;letter-spacing:-.03em}
+  .fam .meta{font-size:16px;color:var(--ink-2);margin-top:12px;line-height:1.4}
+  .weights{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px;font-size:20px}
+  .scale-row{display:grid;grid-template-columns:110px 1fr 300px;align-items:baseline;gap:24px;padding:10px 0;border-top:1px solid var(--line-l)}
+  .scale-row:first-child{border-top:none}
+  .scale-row .tg{font-family:var(--mono);font-size:15px;font-weight:500}
+  .scale-row .sp{font-family:var(--mono);font-size:14px;color:var(--grey);text-align:right}
+  .type-demo{background:#000;color:#fff;padding:52px 72px;display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center;flex:1}
+  .type-demo .k{font-weight:700;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:26px}
+  .type-demo h3{font-size:70px;font-weight:900;line-height:1;letter-spacing:-.03em}
+  .type-demo p{color:var(--on-dark-2);font-size:22px;margin:22px 0 28px;max-width:40ch;line-height:1.4}
+  .btn{font-weight:700;font-size:20px;letter-spacing:.06em;text-transform:uppercase;padding:20px 36px;display:inline-block;background:var(--lime);color:#000}
+  .anat{list-style:none;margin:0;padding:0;counter-reset:a}
+  .anat li{counter-increment:a;display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--line-d);font-size:21px;color:#ddd;line-height:1.4}
+  .anat li::before{content:counter(a);font-family:var(--mono);font-weight:500;color:var(--lime);font-size:20px;width:26px;flex:none}
+  .anat b{color:#fff}
+
+  /* grid */
+  .two{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;flex:1;align-items:stretch}
+  .stage{background:#000;position:relative;overflow:hidden}
+  .stage svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+  .stage .lbl{position:absolute;left:40px;top:40px;color:#fff;font-weight:900;font-size:46px;letter-spacing:-.03em;line-height:1;max-width:60%}
+  .rules{display:grid;gap:10px}
+  .rule{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line-l);padding:14px 18px}
+  .rule .n{font-family:var(--mono);font-weight:500;font-size:16px;color:#000;background:var(--lime);padding:4px 9px;flex:none}
+  .rule h4{font-size:20px;font-weight:700;margin-bottom:3px}
+  .rule p{font-size:16.5px;line-height:1.35;color:var(--ink-2)}
+  .cells{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .cell-tile{background:#000;padding:36px;display:flex;flex-direction:column;align-items:center;gap:18px;color:#fff}
+  .cell-tile svg{width:180px;height:180px}
+  .cell-tile b{font-size:22px}
+  .cell-tile small{font-size:17px;color:var(--grey);text-align:center;line-height:1.4}
+  .code{background:#000;border:1px solid var(--line-d);padding:30px 36px;font-family:var(--mono);font-size:17px;line-height:1.65;color:#ddd;white-space:pre}
+  .code .k{color:var(--lime)}.code .c{color:#777}
+
+  /* capa / encerramento */
+  .cover{justify-content:flex-start !important;padding-bottom:0}
+  .cover .lockup{height:110px !important;width:auto;align-self:flex-start;margin-bottom:48px}
+  .cover .hk{font-weight:700;font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:26px}
+  .cover h1{font-weight:900;font-size:140px;line-height:.94;letter-spacing:-.035em;max-width:15ch}
+  .cover p{color:var(--on-dark-2);font-size:26px;max-width:50ch;margin-top:26px;line-height:1.4}
+  .cover .space{display:none}
+  .end .body{justify-content:flex-start}
+  .end .links{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:40px}
+  .end .links > div{background:var(--raised);border:1px solid var(--line-d);padding:30px 34px}
+  .end .links h4{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:12px}
+  .end .links p{font-size:24px;color:#fff;font-weight:500;line-height:1.35}
+  .end .links small{display:block;font-size:17px;color:var(--grey);margin-top:8px;line-height:1.4}
+
+  @media print{
+    @page{size:1920px 1080px;margin:0}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    html,body{background:#fff;width:1920px}
+    .slide{margin:0;break-after:page;page-break-after:always}
+    .slide:last-child{break-after:auto;page-break-after:auto}
+  }
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="s-wordmark" viewBox="0 0 543 81"><path fill="currentColor" d="M542.366 0.0877952H516.029L486.004 30.4631H454.137V0.0877952H433.682V80.8544H454.137V50.3914H484.6L516.029 80.8544H542.366L503.914 41.1735L542.366 0.0877952ZM81.03 30.4631H78.8353H23.9666C21.7719 30.4631 19.9282 28.6195 19.9282 26.4247V19.9283H91.038L94.5496 0H19.9282C8.95452 0 0 8.95457 0 19.9283V30.4631C0 41.4368 8.95452 50.3914 19.9282 50.3914H24.5812H76.9916C79.1864 50.3914 81.03 52.235 81.03 54.4297V56.8878C81.03 59.0826 79.1864 60.9262 76.9916 60.9262H0V80.8544H81.03C92.0037 80.8544 100.958 71.8999 100.958 60.9262V50.3914C100.958 39.4177 92.0037 30.4631 81.03 30.4631ZM291.55 0.0877952H223.864L220.352 20.0161H287.512C289.706 20.0161 291.55 21.8597 291.55 24.0544V24.9323V30.5509H291.374H230.448C219.475 30.5509 210.52 39.4176 210.52 50.4792V61.0139C210.52 71.9877 219.475 80.9422 230.448 80.9422H272.236C281.63 80.9422 289.443 74.4458 291.55 65.7546V80.9422H311.478V30.6387V20.1039C311.478 9.13017 302.524 0.17559 291.55 0.17559V0.0877952ZM291.55 60.9262H234.487C232.292 60.9262 230.448 59.0826 230.448 56.8878V54.4297C230.448 52.3227 232.029 50.6548 234.048 50.3914H291.55V60.8383V60.9262ZM320.872 40.4711C320.872 62.7697 338.957 80.8544 361.255 80.8544H423.059V60.9262H361.255C349.93 60.9262 340.8 51.7082 340.8 40.4711C340.8 29.234 350.018 20.0161 361.255 20.0161H423.059V0.0877952H361.255C338.957 0.0877952 320.872 18.1725 320.872 40.4711ZM214.119 0.0877952H104.119L100.607 20.0161H161.182C152.315 22.0352 145.643 29.9364 145.643 39.4177V80.8544H165.572V20.0161H210.608L214.119 0.0877952Z"/></symbol>
+  <symbol id="s-stacked" viewBox="0 0 407 230"><path fill="currentColor" d="M105.819 39.7663H102.973H31.2289C28.3082 39.7663 25.9867 37.3699 25.9867 34.5241V26.0615H118.85L123.418 0.0748712H25.9867C11.6079 0.0748712 0 11.7576 0 26.0615V39.8412C0 54.22 11.6828 65.8279 25.9867 65.8279H32.1276H100.577C103.497 65.8279 105.819 68.2243 105.819 71.0701V74.2904C105.819 77.2111 103.422 79.5327 100.577 79.5327H0V105.519H105.819C120.198 105.519 131.806 93.8366 131.806 79.5327V65.753C131.806 51.3742 120.123 39.7663 105.819 39.7663ZM380.813 0.0748712H292.369L287.8 26.0615H375.571C378.492 26.0615 380.813 28.458 380.813 31.3038V32.4272V39.7663H380.589H300.981C286.602 39.7663 274.994 51.3742 274.994 65.753V79.5327C274.994 93.9115 286.602 105.519 300.981 105.519H355.576C367.782 105.519 378.042 97.0568 380.813 85.7485V105.519H406.8V39.7663V25.9867C406.8 11.6079 395.192 0 380.813 0V0.0748712ZM380.813 79.5327H306.298C303.377 79.5327 301.056 77.1362 301.056 74.2904V71.0701C301.056 68.3741 303.078 66.1274 305.774 65.8279H380.888V79.5327H380.813ZM279.712 0.0748712H135.999L131.431 26.0615H210.589C198.981 28.6827 190.294 39.0174 190.294 51.4491V105.594H216.281V26.0615H275.144L279.712 0.0748712Z"/><path fill="currentColor" d="M348.012 124.317H313.562L274.395 164.083H232.757V156.519V124.317H206.021V156.519V164.682V229.836H232.757V190.07H272.523L313.562 229.911H348.012L297.836 178.012L348.012 124.317Z"/><path fill="currentColor" d="M58.7883 177.114C58.7883 206.171 82.4534 229.836 111.511 229.836H192.241V203.849H111.511C96.7573 203.849 84.775 191.867 84.775 177.114C84.775 162.36 96.7573 150.378 111.511 150.378H192.241V124.391H111.511C82.4534 124.391 58.7883 148.057 58.7883 177.114Z"/></symbol>
+  <symbol id="s-lockup" viewBox="0 0 543 137">
+    <path style="fill:var(--wm,currentColor)" d="M542.366 0.0877952H516.029L486.004 30.4631H454.137V0.0877952H433.682V80.8544H454.137V50.3914H484.6L516.029 80.8544H542.366L503.914 41.1735L542.366 0.0877952ZM81.03 30.4631H78.8353H23.9666C21.7719 30.4631 19.9282 28.6195 19.9282 26.4247V19.9283H91.038L94.5496 0H19.9282C8.95452 0 0 8.95457 0 19.9283V30.4631C0 41.4368 8.95452 50.3914 19.9282 50.3914H24.5812H76.9916C79.1864 50.3914 81.03 52.235 81.03 54.4297V56.8878C81.03 59.0826 79.1864 60.9262 76.9916 60.9262H0V80.8544H81.03C92.0037 80.8544 100.958 71.8999 100.958 60.9262V50.3914C100.958 39.4177 92.0037 30.4631 81.03 30.4631ZM291.55 0.0877952H223.864L220.352 20.0161H287.512C289.706 20.0161 291.55 21.8597 291.55 24.0544V24.9323V30.5509H291.374H230.448C219.475 30.5509 210.52 39.4176 210.52 50.4792V61.0139C210.52 71.9877 219.475 80.9422 230.448 80.9422H272.236C281.63 80.9422 289.443 74.4458 291.55 65.7546V80.9422H311.478V30.6387V20.1039C311.478 9.13017 302.524 0.17559 291.55 0.17559V0.0877952ZM291.55 60.9262H234.487C232.292 60.9262 230.448 59.0826 230.448 56.8878V54.4297C230.448 52.3227 232.029 50.6548 234.048 50.3914H291.55V60.8383V60.9262ZM320.872 40.4711C320.872 62.7697 338.957 80.8544 361.255 80.8544H423.059V60.9262H361.255C349.93 60.9262 340.8 51.7082 340.8 40.4711C340.8 29.234 350.018 20.0161 361.255 20.0161H423.059V0.0877952H361.255C338.957 0.0877952 320.872 18.1725 320.872 40.4711ZM214.119 0.0877952H104.119L100.607 20.0161H161.182C152.315 22.0352 145.643 29.9364 145.643 39.4177V80.8544H165.572V20.0161H210.608L214.119 0.0877952Z"/>
+    <g style="fill:var(--sig,currentColor)">
+    <path d="M276.919 120.343L282.313 115.211L282.578 114.963V113.412H271.278V115.217H280.052L274.37 120.621V122.155H277.385C279.574 122.155 281.415 123.028 281.415 125.393C281.415 127.758 279.504 129.138 276.989 129.138C274.475 129.138 273.101 128.165 271.725 127.192C271.147 127.976 270.634 128.761 270.634 128.761C272.033 129.864 273.597 130.938 276.954 130.938C280.618 130.938 283.403 128.738 283.403 125.293C283.403 122.474 281.238 120.35 277.821 120.35H276.919V120.344V120.343Z"/>
+    <path d="M241.041 122.141H235.347V115.21H241.041C243.998 115.21 244.458 117.605 244.458 118.679C244.458 119.753 243.997 122.148 241.041 122.148M240.516 113.406H233.364V130.695H235.353V123.947H240.51C244.706 123.947 246.488 121.599 246.488 118.679C246.488 115.759 244.706 113.406 240.51 113.406"/>
+    <path d="M265.349 113.406L258.616 127.179L251.883 113.406H249.499V130.694H251.494V117.075L258.05 130.7H259.183L265.744 117.075V130.694H267.739V113.406H265.349Z"/>
+    <path d="M223.044 109.436H204.026C202.309 109.436 200.916 110.828 200.916 112.544V131.556C200.916 133.273 202.309 134.664 204.026 134.664H215.964C217.987 134.664 220.071 132.37 220.071 129.757C220.071 126.796 217.197 124.395 214.235 124.395H210.176V122.956L217.865 115.653H206.322V113.4H221.612V114.951L221.352 115.199L214.136 122.135C218.573 122.135 222.332 125.793 222.332 129.751C222.332 131.697 221.63 133.332 220.532 134.658H223.04C224.757 134.658 226.15 133.266 226.15 131.55V112.544C226.15 110.828 224.757 109.436 223.04 109.436"/>
+    <path d="M377.544 120.511C377.497 120.78 377.353 120.948 377.163 121.094C376.949 121.241 376.783 121.315 376.592 121.388C376.212 121.534 375.78 121.681 375.352 121.825C374.924 121.996 374.492 122.143 374.112 122.262C373.659 122.433 373.204 122.579 372.824 122.724C372.513 122.87 372.229 123.041 371.941 123.258C371.702 123.478 371.513 123.719 371.322 124.062C371.13 124.38 371.035 124.792 371.035 125.278C371.035 126.253 371.274 126.984 371.726 127.469C372.178 127.931 373.038 128.199 374.28 128.199C375.523 128.199 376.403 127.93 376.879 127.445C377.331 126.935 377.571 126.228 377.571 125.303L377.547 120.505L377.544 120.511L377.544 120.511ZM374.299 110.237C376.517 110.237 378.165 110.675 379.213 111.576C380.24 112.477 380.764 113.596 380.764 114.938V126.382C380.764 126.844 380.668 127.357 380.501 127.916C380.333 128.476 380.025 128.989 379.545 129.45C379.067 129.912 378.402 130.302 377.566 130.617C376.731 130.932 375.635 131.079 374.296 131.079C372.957 131.079 371.862 130.907 371.028 130.617C370.192 130.327 369.524 129.911 369.048 129.45C368.572 128.989 368.236 128.476 368.093 127.916C367.925 127.357 367.829 126.844 367.829 126.382V124.555C367.829 123.579 368.093 122.678 368.569 121.878C369.07 121.074 369.761 120.49 370.668 120.173C371.12 120.002 371.623 119.855 372.22 119.638C372.792 119.418 373.363 119.25 373.914 119.03C374.462 118.834 374.917 118.663 375.346 118.519C375.75 118.348 376.013 118.275 376.109 118.226C376.205 118.178 376.349 118.104 376.489 118.007C376.657 117.909 376.8 117.762 376.965 117.618C377.133 117.423 377.253 117.23 377.345 117.01C377.465 116.765 377.513 116.5 377.513 116.181V115.451C377.513 115.182 377.465 114.942 377.345 114.648C377.25 114.354 377.058 114.137 376.821 113.893C376.558 113.649 376.226 113.481 375.818 113.334C375.411 113.187 374.887 113.113 374.243 113.113C372.98 113.113 372.145 113.382 371.665 113.917C371.285 114.378 371.046 114.941 370.997 115.598C370.997 115.744 370.878 115.842 370.734 115.842H367.991C367.847 115.842 367.728 115.72 367.728 115.573V114.892C367.728 114.235 367.847 113.627 368.087 113.065C368.326 112.502 368.707 111.992 369.255 111.555C369.779 111.142 370.447 110.775 371.282 110.555C372.166 110.384 373.141 110.237 374.288 110.237H374.301H374.299ZM330.259 120.511C330.211 120.78 330.067 120.948 329.879 121.094C329.663 121.241 329.498 121.315 329.306 121.388C328.926 121.534 328.495 121.681 328.067 121.825C327.639 121.996 327.207 122.143 326.827 122.262C326.375 122.433 325.92 122.579 325.54 122.724C325.228 122.87 324.944 123.041 324.656 123.258C324.417 123.478 324.228 123.719 324.037 124.062C323.845 124.404 323.749 124.792 323.749 125.278C323.749 126.253 323.989 126.984 324.441 127.469C324.894 127.931 325.753 128.199 326.996 128.199C328.238 128.199 329.119 127.93 329.594 127.445C330.046 126.935 330.286 126.228 330.286 125.303L330.262 120.505L330.259 120.511V120.511ZM326.989 110.237C329.208 110.237 330.854 110.675 331.902 111.576C332.93 112.477 333.453 113.596 333.453 114.938V126.382C333.453 126.844 333.358 127.357 333.19 127.916C333.023 128.476 332.714 128.989 332.235 129.45C331.755 129.912 331.09 130.302 330.255 130.617C329.42 130.932 328.324 131.079 326.986 131.079C325.647 131.079 324.551 130.907 323.716 130.617C322.881 130.327 322.213 129.911 321.737 129.45C321.261 128.989 320.926 128.476 320.782 127.916C320.614 127.357 320.519 126.844 320.519 126.382V124.555C320.519 123.579 320.782 122.678 321.258 121.878C321.758 121.074 322.449 120.49 323.357 120.173C323.809 120.002 324.312 119.855 324.908 119.638C325.48 119.418 326.052 119.25 326.602 119.03C327.15 118.834 327.605 118.663 328.034 118.519C328.437 118.348 328.701 118.275 328.797 118.226C328.892 118.178 329.037 118.104 329.177 118.007C329.345 117.909 329.489 117.762 329.653 117.618C329.821 117.423 329.94 117.23 330.033 117.01C330.154 116.765 330.201 116.5 330.201 116.181V115.451C330.201 115.182 330.154 114.942 330.033 114.648C329.938 114.354 329.746 114.137 329.51 113.893C329.245 113.649 328.914 113.481 328.507 113.334C328.099 113.187 327.575 113.113 326.931 113.113C325.668 113.113 324.832 113.382 324.353 113.917C323.973 114.378 323.733 114.941 323.685 115.598C323.685 115.744 323.566 115.842 323.422 115.842H320.752C320.607 115.842 320.488 115.72 320.488 115.573V114.892C320.488 114.235 320.608 113.627 320.847 113.065C321.086 112.502 321.467 111.992 322.015 111.555C322.539 111.142 323.207 110.775 324.042 110.555C324.854 110.384 325.832 110.237 326.977 110.237H326.989ZM364.517 110.237H366.355C366.522 110.237 366.642 110.408 366.594 110.555L365.974 112.991C365.95 113.113 365.83 113.186 365.734 113.186H364.447C363.755 113.186 363.207 113.284 362.776 113.48C362.372 113.676 362.013 113.869 361.796 114.137C361.558 114.406 361.437 114.648 361.369 114.917C361.297 115.21 361.273 115.451 361.273 115.696V130.89C361.273 131.037 361.153 131.159 361.01 131.159H358.267C358.123 131.159 358.003 131.037 358.003 130.89V115.012C358.003 114.719 358.052 114.306 358.171 113.771C358.267 113.237 358.53 112.723 358.982 112.188C359.41 111.678 360.057 111.213 360.938 110.825C361.773 110.436 362.989 110.241 364.516 110.241V110.238L364.517 110.237ZM355.213 125.672V126.378C355.213 126.696 355.165 127.109 355.045 127.644C354.949 128.153 354.685 128.692 354.234 129.202C353.806 129.712 353.16 130.177 352.278 130.565C351.396 130.932 350.204 131.124 348.677 131.124C347.15 131.124 345.958 130.929 345.074 130.565C344.191 130.202 343.571 129.737 343.119 129.202C342.692 128.692 342.404 128.154 342.308 127.619C342.211 127.084 342.14 126.693 342.14 126.378V110.482C342.14 110.335 342.26 110.213 342.403 110.213H345.123C345.266 110.213 345.386 110.335 345.386 110.482V125.357C345.386 125.843 345.458 126.21 345.529 126.479C345.601 126.748 345.745 127.039 345.933 127.283C346.149 127.551 346.457 127.744 346.889 127.915C347.293 128.086 347.868 128.184 348.584 128.184C349.3 128.184 349.919 128.086 350.35 127.915C350.781 127.744 351.114 127.548 351.33 127.307C351.569 127.062 351.71 126.821 351.781 126.527C351.853 126.234 351.949 126.017 351.949 125.335V110.481C351.949 110.334 352.068 110.212 352.212 110.212H354.931C355.075 110.212 355.194 110.334 355.194 110.481L355.218 125.675L355.212 125.671L355.213 125.672ZM336.46 102.714H339.178C339.323 102.714 339.442 102.836 339.442 102.983V130.886C339.442 131.033 339.322 131.155 339.178 131.155H336.46C336.316 131.155 336.197 131.033 336.197 130.886V102.983C336.197 102.836 336.317 102.714 336.46 102.714Z"/>
+    <path d="M169.914 122.653H165.184L165.161 121.453H169.233C170.064 121.453 170.771 121.334 171.356 121.096C171.94 120.857 172.382 120.503 172.682 120.034C172.99 119.558 173.144 118.973 173.144 118.281C173.144 117.573 172.994 116.989 172.694 116.527C172.394 116.058 171.944 115.712 171.344 115.489C170.744 115.266 169.99 115.155 169.083 115.155H165.553V130.728H164.134V113.932H169.083C169.937 113.932 170.702 114.016 171.379 114.186C172.055 114.355 172.632 114.62 173.109 114.982C173.586 115.343 173.947 115.801 174.193 116.354C174.447 116.9 174.574 117.554 174.574 118.315C174.574 119.008 174.42 119.634 174.113 120.196C173.805 120.75 173.37 121.203 172.809 121.557C172.255 121.903 171.59 122.119 170.813 122.203L169.914 122.653ZM169.81 130.728H164.734L165.461 129.517H169.81C170.64 129.517 171.348 129.378 171.932 129.102C172.525 128.817 172.978 128.413 173.294 127.89C173.609 127.367 173.767 126.744 173.767 126.022C173.767 125.383 173.628 124.81 173.351 124.303C173.074 123.795 172.651 123.395 172.082 123.103C171.513 122.803 170.79 122.653 169.914 122.653H166.972L166.995 121.453H171.159L171.413 121.88C172.167 121.957 172.824 122.192 173.386 122.584C173.955 122.968 174.393 123.457 174.701 124.049C175.016 124.641 175.174 125.291 175.174 125.998C175.174 127.014 174.947 127.875 174.493 128.582C174.047 129.282 173.42 129.817 172.613 130.186C171.813 130.547 170.879 130.728 169.81 130.728ZM177.332 113.932L182.419 123.08L187.552 113.932H189.191L183.134 124.395V130.728H181.715V124.395L175.647 113.932H177.332Z"/>
+    <path d="M298.808 121.672L301.507 119.642C301.999 119.281 302.403 118.892 302.718 118.477C303.041 118.054 303.203 117.558 303.203 116.989C303.203 116.443 303.007 115.954 302.615 115.524C302.222 115.093 301.657 114.878 300.919 114.878C300.381 114.878 299.927 114.997 299.558 115.235C299.188 115.466 298.912 115.781 298.727 116.181C298.542 116.574 298.45 117.004 298.45 117.473C298.45 117.843 298.523 118.227 298.669 118.627C298.823 119.019 299.039 119.431 299.315 119.861C299.6 120.284 299.942 120.73 300.342 121.199L308.51 130.728H306.848L299.892 122.641C299.323 121.98 298.823 121.369 298.393 120.807C297.97 120.246 297.643 119.7 297.412 119.169C297.181 118.639 297.066 118.089 297.066 117.52C297.066 116.727 297.224 116.047 297.539 115.478C297.854 114.909 298.3 114.47 298.877 114.163C299.454 113.847 300.134 113.69 300.919 113.69C301.673 113.69 302.315 113.843 302.845 114.151C303.384 114.451 303.795 114.851 304.08 115.351C304.364 115.843 304.507 116.389 304.507 116.989C304.507 117.489 304.395 117.954 304.172 118.385C303.957 118.815 303.676 119.208 303.33 119.561C302.992 119.907 302.634 120.227 302.257 120.519L299.188 122.884C298.527 123.414 298.035 123.903 297.712 124.349C297.397 124.795 297.189 125.191 297.089 125.537C296.989 125.883 296.939 126.183 296.939 126.437C296.939 127.029 297.077 127.579 297.354 128.086C297.631 128.594 298.054 129.002 298.623 129.309C299.192 129.617 299.908 129.771 300.769 129.771C301.492 129.771 302.192 129.617 302.868 129.309C303.545 128.994 304.149 128.548 304.68 127.971C305.218 127.387 305.641 126.694 305.949 125.895C306.264 125.087 306.422 124.191 306.422 123.207H307.69C307.69 123.937 307.617 124.622 307.471 125.26C307.333 125.898 307.125 126.487 306.848 127.025C306.571 127.563 306.229 128.06 305.822 128.513C305.76 128.59 305.718 128.652 305.695 128.698C305.679 128.744 305.641 128.798 305.579 128.859C304.964 129.505 304.241 130.017 303.411 130.394C302.58 130.77 301.699 130.959 300.769 130.959C299.7 130.959 298.773 130.77 297.989 130.394C297.212 130.017 296.612 129.49 296.189 128.813C295.774 128.129 295.566 127.337 295.566 126.437C295.566 125.768 295.708 125.16 295.993 124.614C296.278 124.068 296.666 123.557 297.158 123.08C297.65 122.603 298.2 122.134 298.808 121.672Z"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- 1 · CAPA -->
+<section class="slide black cover">
+  <div style="width:436px;height:110px;margin-bottom:48px;flex:none"><svg class="lg two" viewBox="0 0 543 137" style="width:436px;height:110px"><use href="#s-lockup"/></svg></div>
+  <div class="hk">Design System · v1.0 · Outubro 2026</div>
+  <h1>Da conversa para a <span class="lm">construção.</span></h1>
+  <p>Fundamentos para criar qualquer peça da Stack — do anúncio ao slide, da página ao e-mail — com a mesma clareza do key visual.</p>
+  <div class="space"></div>
+  <div class="pat" id="patCover"></div>
+</section>
+
+<!-- 2 · ESSÊNCIA -->
+<section class="slide">
+  <div class="kicker"><span class="num">01</span> Essência da marca</div>
+  <h2 class="title">Para quem constrói, não só usa</h2>
+  <p class="lead">A Stack é a escola de IA e automação da PM3 e da Alura para quem quer construir aplicações, automações e agentes — sem código. Seis princípios guiam qualquer peça.</p>
+  <div class="body">
+    <div class="grid g3" style="margin-top:36px">
+      <div class="card"><div class="idx">1</div><h3>Alto contraste</h3><p>Preto e branco fazem o trabalho pesado. Nada de meio-tom, gradiente ou transparência decorativa.</p></div>
+      <div class="card"><div class="idx">2</div><h3>Uma cor de destaque</h3><p>O lima aparece onde há ação ou ênfase — e em mais nada. Quanto menos lima, mais ele vale.</p></div>
+      <div class="card"><div class="idx">3</div><h3>Uma família tipográfica</h3><p>Roboto, do Light ao Black. A hierarquia vem do peso e do tamanho.</p></div>
+      <div class="card"><div class="idx">4</div><h3>Geometria reta</h3><p>Cantos retos, linhas de 1 px, blocos cheios. Sem sombra, sem raio, sem mockup 3D.</p></div>
+      <div class="card"><div class="idx">5</div><h3>Pixels em dissolução</h3><p>O grafismo nasce de um módulo quadrado que se desfaz. É a textura da marca — e a única.</p></div>
+      <div class="card blk"><div class="idx">+</div><h3>De builder para builder</h3><p>Tudo mostra o que foi construído: telas reais, projetos, pessoas no Builders Camp.</p></div>
+    </div>
+    <div class="quote"><p>Você não precisa de código. Você precisa construir.</p><small>Brandbook Stack v1.1 · voz e tom</small></div>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 02 / 10</span></div>
+</section>
+
+<!-- 3 · LOGO -->
+<section class="slide black">
+  <div class="kicker"><span class="num">02</span> Logotipo</div>
+  <h2 class="title">A palavra é a marca</h2>
+  <p class="lead">Wordmark em caixa alta, geométrico, sem símbolo separado. Três cores — lima, preto e branco — e três arranjos: horizontal, empilhado e com a assinatura das marcas-mãe. Sempre os SVGs oficiais.</p>
+  <div class="body" style="display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;margin-top:30px">
+    <div class="logo-grid">
+      <div class="logo-tile lt-black" style="color:var(--lime)"><svg><use href="#s-wordmark"/></svg><small>Lima sobre preto — principal</small></div>
+      <div class="logo-tile lt-white"><svg><use href="#s-wordmark"/></svg><small>Preto sobre branco</small></div>
+      <div class="logo-tile lt-lime"><svg><use href="#s-wordmark"/></svg><small>Preto sobre lima — capas</small></div>
+      <div class="logo-tile lt-dark"><svg><use href="#s-wordmark"/></svg><small>Branco sobre dark — interface</small></div>
+      <div class="logo-tile lt-black stk" style="color:var(--lime)"><svg><use href="#s-stacked"/></svg><small>Empilhado — avatar, selo, crachá</small></div>
+      <div class="logo-tile lt-black lk"><svg class="lg two"><use href="#s-lockup"/></svg><small>Com assinatura “by PM3 &amp; alura”</small></div>
+    </div>
+    <div>
+      <div class="cs-box"><i class="xt">X</i><i class="xl">X</i><i class="xr">X</i><i class="xb">X</i><svg><use href="#s-wordmark"/></svg></div>
+      <p style="font-size:21px;line-height:1.45;color:var(--on-dark-2);margin-top:28px;max-width:40ch"><b style="color:#fff">Respiro:</b> o espaço livre em todos os lados é igual à altura das letras. Nada invade essa área.<br><br><b style="color:#fff">Tamanho mínimo:</b> wordmark 90 px / 22 mm · empilhado 56 px / 14 mm · com assinatura 160 px / 40 mm.<br><br><b style="color:#fff">Posição:</b> canto superior esquerdo em páginas e slides, inferior esquerdo em anúncios. Centralizado só em capa. A assinatura entra na primeira aparição em peças de alcance.</p>
+    </div>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 03 / 10</span></div>
+</section>
+
+<!-- 4 · LOGO — FAÇA / EVITE -->
+<section class="slide dark">
+  <div class="kicker"><span class="num">02</span> Logotipo · uso correto</div>
+  <h2 class="title">Faça e evite</h2>
+  <div class="body" style="margin-top:26px">
+    <div class="dd">
+      <div class="ok"><h4>Faça</h4><ul>
+        <li>Use os SVGs oficiais (lima, preto, branco)</li>
+        <li>Lima só sobre preto ou dark; preto sobre branco, lima ou cinza; branco sobre preto ou dark</li>
+        <li>Mantenha o respiro mínimo e a posição de canto</li>
+        <li>Use a versão com assinatura quando PM3 e Alura precisam ser citadas</li>
+      </ul></div>
+      <div class="no"><h4>Evite</h4><ul>
+        <li>Lima sobre branco ou sobre foto clara (não há contraste)</li>
+        <li>Recolorir fora da paleta, aplicar gradiente, contorno, sombra ou brilho</li>
+        <li>Distorcer, inclinar, rotacionar ou escrever “Stack” em Roboto no lugar do wordmark</li>
+        <li>Reposicionar ou recriar a assinatura “by PM3 &amp; alura” à mão</li>
+      </ul></div>
+    </div>
+    <div class="wrong">
+      <div style="color:#000"><svg style="transform:scaleX(1.45)"><use href="#s-wordmark"/></svg><span>Distorcido</span><b class="x">✕</b></div>
+      <div style="color:var(--lime)"><svg><use href="#s-wordmark"/></svg><span>Lima sobre branco</span><b class="x">✕</b></div>
+      <div style="background:#000;color:#6645B1"><svg><use href="#s-wordmark"/></svg><span style="color:#ff8a8a">Fora da paleta</span><b class="x" style="color:#ff8a8a">✕</b></div>
+      <div style="color:#000"><svg style="transform:rotate(-8deg);filter:drop-shadow(5px 7px 4px rgba(0,0,0,.4))"><use href="#s-wordmark"/></svg><span>Inclinado, com sombra</span><b class="x">✕</b></div>
+    </div>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 04 / 10</span></div>
+</section>
+
+<!-- 5 · CORES -->
+<section class="slide">
+  <div class="kicker"><span class="num">03</span> Cores</div>
+  <h2 class="title">Lima, preto e branco</h2>
+  <p class="lead">O preto é a base, o branco é o respiro, o lima é o único destaque. Dark, cinza e dois neutros de interface completam a paleta.</p>
+  <div class="body" style="margin-top:30px">
+    <div class="sw-grid">
+      <div class="sw" style="background:#000"><div><div class="nm">Preto</div><div class="role">Base · fundo de peças e capas, texto em fundo claro</div></div><div class="codes"><b>HEX</b>#000000 <b>RGB</b>0 0 0<br><b>CMYK</b>100 100 100 100</div></div>
+      <div class="sw light" style="background:#E7FF00"><div><div class="nm">Lima</div><div class="role">Destaque · CTA, kicker, ênfase, padrão. Nunca texto sobre branco</div></div><div class="codes"><b>HEX</b>#E7FF00 <b>RGB</b>231 255 0<br><b>CMYK</b>20 0 100 0</div></div>
+      <div class="sw light bordered" style="background:#fff"><div><div class="nm">Branco</div><div class="role">Respiro · documentos, slides claros, texto em fundo escuro</div></div><div class="codes"><b>HEX</b>#FFFFFF <b>RGB</b>255 255 255</div></div>
+      <div class="sw" style="background:#121212"><div><div class="nm">Dark</div><div class="role">Fundo escuro de leitura · site, interface, vídeo</div></div><div class="codes"><b>HEX</b>#121212 <b>RGB</b>18 18 18</div></div>
+    </div>
+    <div class="sw-grid" style="margin-top:16px">
+      <div class="sw" style="background:#898989;min-height:120px"><div class="nm">Cinza</div><div class="codes"><b>HEX</b>#898989 · texto secundário e metadados</div></div>
+      <div class="sw" style="background:#1C1C1C;min-height:120px"><div class="nm">Raised</div><div class="codes"><b>HEX</b>#1C1C1C · cards sobre dark</div></div>
+      <div class="sw light bordered" style="background:#F0F0EA;min-height:120px"><div class="nm">Off-white</div><div class="codes"><b>HEX</b>#F0F0EA · fundo claro alternativo</div></div>
+      <div class="sw light bordered" style="background:#fff;min-height:120px"><div class="nm">Linhas</div><div class="codes"><b>ESCURO</b>rgba(255,255,255,.14)<br><b>CLARO</b>rgba(0,0,0,.12)</div></div>
+    </div>
+    <div class="proportion">
+      <div style="flex-grow:60;background:#000;color:#fff">Preto ou dark · ~60%</div>
+      <div style="flex-grow:28;background:#fff;color:#000">Branco · 25–30%</div>
+      <div style="flex-grow:8;background:var(--lime);color:#000">Lima · ≤10%</div>
+      <div style="flex-grow:4;background:var(--grey);color:#000;font-size:13px">Cinza</div>
+    </div>
+    <p style="margin-top:18px;font-size:19px;color:var(--ink-2);line-height:1.4">O lima é destaque, não fundo: só preenche botão e tag, barra fina, ou capa de curso com wordmark e título curtos em preto. Nunca atrás de texto corrido. Lima aceita apenas texto preto.</p>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 05 / 10</span></div>
+</section>
+
+<!-- 6 · TIPOGRAFIA -->
+<section class="slide off">
+  <div class="kicker"><span class="num">04</span> Tipografia</div>
+  <h2 class="title">Uma família, seis pesos</h2>
+  <p class="lead">Roboto do Light ao Black. A hierarquia vem do peso e do tamanho, nunca de uma segunda fonte. Roboto Mono só em metadados, dados e código.</p>
+  <div class="body" style="margin-top:30px">
+    <div class="fam">
+      <div class="card"><div class="label">Títulos e destaques</div><div class="big" style="font-weight:900">Roboto</div><div class="weights"><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span><span style="font-weight:800">Extrabold</span><span style="font-weight:900">Black</span></div><div class="meta">Extrabold ou Black, caixa mista, tracking −2% a −3%, entrelinha 1,0–1,08. Caixa alta só em kicker, tag e CTA.</div></div>
+      <div class="card"><div class="label">Parágrafos e interface</div><div class="big" style="font-weight:400">Roboto</div><div class="weights"><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span></div><div class="meta">Regular para corpo (16–18 px, entrelinha 1,5), Medium para destaques. Nunca justificado. Até 4 linhas por parágrafo.</div></div>
+      <div class="card blk"><div class="label" style="color:var(--lime)">Código, dados e metadados</div><div class="big" style="font-family:var(--mono);font-weight:500">Mono</div><div style="font-family:var(--mono);font-size:22px;line-height:1.4">9H · 11 MÓDULOS<br>+20.000 · 96% → 25%</div><div class="meta" style="color:var(--grey)">Roboto Mono. Só para duração e módulos, números em tabelas, tokens e código. Nunca em título ou corpo.</div></div>
+    </div>
+    <div class="card" style="margin-top:20px;padding:10px 36px">
+      <div class="scale-row"><span class="tg">Display</span><span style="font-weight:900;font-size:60px;line-height:1;letter-spacing:-.035em">Da conversa para a construção</span><span class="sp">Roboto 900 · 56–108px · LH .96 · −3,5%</span></div>
+      <div class="scale-row"><span class="tg">H1</span><span style="font-weight:900;font-size:42px;line-height:1;letter-spacing:-.03em">Construa seu portfólio Builder</span><span class="sp">Roboto 900 · 36–48px · LH 1 · −3%</span></div>
+            <div class="scale-row"><span class="tg">Body</span><span style="font-size:20px;line-height:1.4">Mentorias em grupo, atividades ao vivo e uma comunidade de builders.</span><span class="sp">Roboto 400 · 16–18px · LH 1,5</span></div>
+      <div class="scale-row"><span class="tg">Botão</span><span style="font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase">Começar curso →</span><span class="sp">Roboto 700 · 14px · +6% · caixa alta</span></div>
+    </div>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 06 / 10</span></div>
+</section>
+
+<!-- 7 · ASSINATURA TIPOGRÁFICA -->
+<section class="slide off">
+  <div class="kicker"><span class="num">04</span> Tipografia · a assinatura</div>
+  <h2 class="title">Título + palavra em lima</h2>
+  <div class="type-demo" style="margin-top:26px">
+    <div>
+      <div class="k">⚡ Para quem constrói</div>
+      <h3>Saia do operacional e <span class="lm">construa</span> o que faz diferença no seu segmento.</h3>
+      <p>Cursos práticos de Lovable, n8n, Claude Code e Cursor — sem código e com método validado por PM3 e Alura.</p>
+      <span class="btn">Quero conhecer a Stack</span>
+    </div>
+    <ol class="anat">
+      <li><div><b>Kicker</b> — Bold, caixa alta, tracking +12%. Lima em fundo escuro, preto em fundo claro. O ⚡ é o único emoji da marca e é opcional.</div></li>
+      <li><div><b>Título</b> — Black, caixa mista, tracking −3%. Branco em fundo escuro, preto em fundo claro.</div></li>
+      <li><div><b>Ênfase</b> — a palavra que carrega a promessa, em lima sobre escuro ou com marcador lima sobre claro. <b>Uma por título.</b></div></li>
+      <li><div><b>Corpo</b> — Regular, 2–4 linhas, branco a 68% em fundo escuro.</div></li>
+      <li><div><b>CTA</b> — Bold caixa alta, botão lima de cantos retos. Um por peça.</div></li>
+    </ol>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 07 / 10</span></div>
+</section>
+
+<!-- 8 · GRID & FORMA -->
+<section class="slide">
+  <div class="kicker"><span class="num">05</span> Grid &amp; forma</div>
+  <h2 class="title">Tudo nasce de um quadrado</h2>
+  <div class="two" style="margin-top:26px">
+    <div class="stage" id="patStage"><div class="lbl">O que você já construiu com IA?</div></div>
+    <div class="rules">
+      <div class="rule"><div class="n">1</div><div><h4>Módulo</h4><p>Célula = 1/32 da largura da peça; vão = 1/4 da célula. Tudo o mais em múltiplos de 8 px.</p></div></div>
+      <div class="rule"><div class="n">2</div><div><h4>Dissolução direcional</h4><p>A densidade cresce em direção a uma borda e cai até quase zero na oposta. Nunca uniforme, nunca centrada.</p></div></div>
+      <div class="rule"><div class="n">3</div><div><h4>Quarto de círculo</h4><p>Até 15% das células com um canto arredondado (raio = célula). O único arredondamento da marca.</p></div></div>
+      <div class="rule"><div class="n">4</div><div><h4>Barra</h4><p>Duas ou três células podem se fundir na horizontal. No máximo uma barra a cada dez células.</p></div></div>
+      <div class="rule"><div class="n">5</div><div><h4>Cantos retos</h4><p>Raio zero em peças gráficas; em interface, até 4 px só em campos de formulário. Sem sombra.</p></div></div>
+      <div class="rule"><div class="n">6</div><div><h4>Área de texto limpa</h4><p>O padrão nunca fica atrás de texto corrido. Um título só entra na zona rala (densidade abaixo de 30%).</p></div></div>
+      <div class="rule" style="box-shadow:inset 0 0 0 2px #000"><div class="n">7</div><div><h4>Um padrão, uma borda</h4><p>Um padrão por peça, ancorado em uma borda, lima sobre preto ou sobre branco. Blocos cheios em 1/3 + 2/3; o lima nunca passa de 1/4 da área.</p></div></div>
+    </div>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 08 / 10</span></div>
+</section>
+
+<!-- 9 · PADRÃO + TOKENS -->
+<section class="slide black">
+  <div class="kicker"><span class="num">05</span> Grid &amp; forma · como o padrão é construído</div>
+  <h2 class="title">Célula, quarto de círculo, barra, vão</h2>
+  <div class="body" style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:stretch;margin-top:26px">
+    <div class="cells" style="grid-template-columns:repeat(2,1fr)">
+      <div class="cell-tile" style="background:var(--raised)"><svg viewBox="0 0 120 120"><rect x="20" y="20" width="80" height="80" fill="#E7FF00"/></svg><b>Célula cheia</b><small>85% ou mais das células preenchidas</small></div>
+      <div class="cell-tile" style="background:var(--raised)"><svg viewBox="0 0 120 120"><path d="M20 100 V20 H100 A80 80 0 0 1 20 100 Z" fill="#E7FF00"/></svg><b>Quarto de círculo</b><small>Até 15% das células, raio = célula</small></div>
+      <div class="cell-tile" style="background:var(--raised)"><svg viewBox="0 0 120 120"><rect x="4" y="42" width="112" height="36" fill="#E7FF00"/></svg><b>Barra</b><small>2–3 células fundidas; no máximo 1 a cada 10</small></div>
+      <div class="cell-tile" style="background:var(--raised)"><svg viewBox="0 0 120 120"><rect x="12" y="12" width="40" height="40" fill="#E7FF00"/><rect x="68" y="12" width="40" height="40" fill="#E7FF00"/><rect x="12" y="68" width="40" height="40" fill="#E7FF00"/><rect x="68" y="68" width="40" height="40" fill="#E7FF00" opacity=".35"/></svg><b>Vão</b><small>Vão = 1/4 da célula; densidade cai da base para o topo</small></div>
+    </div>
+    <div class="code"><span class="c">/* Stack — tokens · nomes de stack.com.br */</span>
+:root {
+  <span class="k">--black</span>:       #000000;
+  <span class="k">--lime</span>:        #E7FF00;  <span class="c">/* ≤10% · nunca texto sobre branco */</span>
+  <span class="k">--lime-ink</span>:    #000000;
+  <span class="k">--white</span>:       #FFFFFF;
+  <span class="k">--dark</span>:        #121212;
+  <span class="k">--grey</span>:        #898989;
+  <span class="k">--dark-raised</span>: #1C1C1C;
+  <span class="k">--off-white</span>:   #F0F0EA;
+  <span class="k">--dark-line</span>:   rgba(255,255,255,.14);
+  <span class="k">--light-line</span>:  rgba(0,0,0,.12);
+  <span class="k">--font</span>:      "Roboto", system-ui, sans-serif;
+  <span class="k">--font-mono</span>: "Roboto Mono", monospace;
+  <span class="k">--r-0</span>: 0;  <span class="k">--r-input</span>: 4px;  <span class="k">--shadow</span>: none;
+  <span class="k">--sp</span>: 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64;
+}</div>
+  </div>
+  <div class="foot"><svg><use href="#s-wordmark"/></svg><span>Design System · 09 / 10</span></div>
+</section>
+
+<!-- 10 · ENCERRAMENTO -->
+<section class="slide black end">
+  <div class="kicker"><span class="num">06</span> Onde encontrar</div>
+  <h2 class="title">Guia completo, tokens e contexto para IA</h2>
+  <p class="lead">A versão web traz o gerador do padrão, os tokens em CSS para copiar e um contexto em Markdown com as regras de comunicação, pronto para colar em outra IA.</p>
+  <div class="body">
+    <div class="links">
+      <div><h4>Guia web</h4><p>stack-design-system.vercel.app</p><small>Senha de acesso com o time de marketing. Também em stackds.vercel.app.</small></div>
+      <div><h4>Repositório</h4><p>github.com/Matheus-Schmidt23/stack-design-system</p><small>Fonte editável, HTML autossuficiente, PDF e SVGs do logo.</small></div>
+      <div><h4>Fontes</h4><p>Brandbook v1.1 · Key visual · stack.com.br</p><small>Pesquisa com a base (91 respostas, jun–set 2026) · Régua Stack v2.0</small></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:120px;bottom:250px"><svg class="lg two" viewBox="0 0 543 137" width="396" height="100" style="height:100px"><use href="#s-lockup"/></svg></div>
+  <div class="pat" id="patEnd"></div>
+  
+</section>
+
+<script>
+  function genDissolve(o){
+    o=Object.assign({cols:32,rows:18,color:'#E7FF00',seed:1,gap:.25,maxDensity:.92,curve:2.2},o||{});
+    let s=o.seed>>>0||1;const rnd=()=>{s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return (s>>>0)/4294967296};
+    const cell=100,gap=cell*o.gap,pitch=cell+gap,W=o.cols*pitch-gap,H=o.rows*pitch-gap;
+    const parts=[];let bars=0,quads=0,filled=0;
+    for(let r=0;r<o.rows;r++){
+      const t=o.rows>1?r/(o.rows-1):1;const p=Math.pow(t,o.curve)*o.maxDensity+0.015;
+      let c=0;
+      while(c<o.cols){
+        const x=c*pitch,y=r*pitch;
+        if(rnd()>=p){c++;continue}
+        filled++;
+        if(p>.5&&bars*10<filled&&rnd()<.12&&c<o.cols-2){const n=rnd()<.5?2:3;parts.push('<rect x="'+x+'" y="'+y+'" width="'+(n*pitch-gap)+'" height="'+cell+'"/>');bars++;c+=n;continue}
+        if(quads<filled*.15&&rnd()<.16){
+          const k=Math.floor(rnd()*4);const R=cell;let d;
+          if(k===0)d='M'+x+' '+(y+R)+' A'+R+' '+R+' 0 0 1 '+(x+R)+' '+y+' V'+(y+cell)+' H'+x+' Z';
+          else if(k===1)d='M'+x+' '+y+' H'+(x+R)+' A'+R+' '+R+' 0 0 1 '+(x+cell)+' '+(y+R)+' V'+(y+cell)+' H'+x+' Z';
+          else if(k===2)d='M'+x+' '+y+' H'+(x+cell)+' V'+(y+cell-R)+' A'+R+' '+R+' 0 0 1 '+(x+cell-R)+' '+(y+cell)+' H'+x+' Z';
+          else d='M'+x+' '+y+' H'+(x+cell)+' V'+(y+cell)+' H'+(x+R)+' A'+R+' '+R+' 0 0 1 '+x+' '+(y+cell-R)+' Z';
+          parts.push('<path d="'+d+'"/>');quads++;c++;continue;
+        }
+        parts.push('<rect x="'+x+'" y="'+y+'" width="'+cell+'" height="'+cell+'"/>');c++;
+      }
+    }
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMax meet"><g fill="'+o.color+'">'+parts.join('')+'</g></svg>';
+  }
+  document.getElementById('patCover').innerHTML=genDissolve({cols:64,rows:9,seed:21,maxDensity:.9,curve:2.4});
+  document.getElementById('patEnd').innerHTML=genDissolve({cols:64,rows:7,seed:9,maxDensity:.85,curve:2.4});
+  document.getElementById('patStage').insertAdjacentHTML('beforeend',genDissolve({cols:26,rows:28,seed:7,curve:2.6}));
+</script>
+</body>
+</html>
