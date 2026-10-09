@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Design System — Stack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Design System da Stack by PM3 & Alura: logo, cores, tipografia, grid e grafismo de pixels, tokens e contexto para IA.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDA3IiBoZWlnaHQ9IjIzMCIgdmlld0JveD0iMCAwIDQwNyAyMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMDUuODE5IDM5Ljc2NjNIMTAyLjk3M0gzMS4yMjg5QzI4LjMwODIgMzkuNzY2MyAyNS45ODY3IDM3LjM2OTkgMjUuOTg2NyAzNC41MjQxVjI2LjA2MTVIMTE4Ljg1TDEyMy40MTggMC4wNzQ4NzEySDI1Ljk4NjdDMTEuNjA3OSAwLjA3NDg3MTIgMCAxMS43NTc2IDAgMjYuMDYxNVYzOS44NDEyQzAgNTQuMjIgMTEuNjgyOCA2NS44Mjc5IDI1Ljk4NjcgNjUuODI3OUgzMi4xMjc2SDEwMC41NzdDMTAzLjQ5NyA2NS44Mjc5IDEwNS44MTkgNjguMjI0MyAxMDUuODE5IDcxLjA3MDFWNzQuMjkwNEMxMDUuODE5IDc3LjIxMTEgMTAzLjQyMiA3OS41MzI3IDEwMC41NzcgNzkuNTMyN0gwVjEwNS41MTlIMTA1LjgxOUMxMjAuMTk4IDEwNS41MTkgMTMxLjgwNiA5My44MzY2IDEzMS44MDYgNzkuNTMyN1Y2NS43NTNDMTMxLjgwNiA1MS4zNzQyIDEyMC4xMjMgMzkuNzY2MyAxMDUuODE5IDM5Ljc2NjNaTTM4MC44MTMgMC4wNzQ4NzEySDI5Mi4zNjlMMjg3LjggMjYuMDYxNUgzNzUuNTcxQzM3OC40OTIgMjYuMDYxNSAzODAuODEzIDI4LjQ1OCAzODAuODEzIDMxLjMwMzhWMzIuNDI3MlYzOS43NjYzSDM4MC41ODlIMzAwLjk4MUMyODYuNjAyIDM5Ljc2NjMgMjc0Ljk5NCA1MS4zNzQyIDI3NC45OTQgNjUuNzUzVjc5LjUzMjdDMjc0Ljk5NCA5My45MTE1IDI4Ni42MDIgMTA1LjUxOSAzMDAuOTgxIDEwNS41MTlIMzU1LjU3NkMzNjcuNzgyIDEwNS41MTkgMzc4LjA0MiA5Ny4wNTY4IDM4MC44MTMgODUuNzQ4NVYxMDUuNTE5SDQwNi44VjM5Ljc2NjNWMjUuOTg2N0M0MDYuOCAxMS42MDc5IDM5NS4xOTIgMCAzODAuODEzIDBWMC4wNzQ4NzEyWk0zODAuODEzIDc5LjUzMjdIMzA2LjI5OEMzMDMuMzc3IDc5LjUzMjcgMzAxLjA1NiA3Ny4xMzYyIDMwMS4wNTYgNzQuMjkwNFY3MS4wNzAxQzMwMS4wNTYgNjguMzc0MSAzMDMuMDc4IDY2LjEyNzQgMzA1Ljc3NCA2NS44Mjc5SDM4MC44ODhWNzkuNTMyN0gzODAuODEzWk0yNzkuNzEyIDAuMDc0ODcxMkgxMzUuOTk5TDEzMS40MzEgMjYuMDYxNUgyMTAuNTg5QzE5OC45ODEgMjguNjgyNyAxOTAuMjk0IDM5LjAxNzQgMTkwLjI5NCA1MS40NDkxVjEwNS41OTRIMjE2LjI4MVYyNi4wNjE1SDI3NS4xNDRMMjc5LjcxMiAwLjA3NDg3MTJaIiBmaWxsPSIjRTdGRjAwIi8+CjxwYXRoIGQ9Ik0zNDguMDEyIDEyNC4zMTdIMzEzLjU2MkwyNzQuMzk1IDE2NC4wODNIMjMyLjc1N1YxNTYuNTE5VjEyNC4zMTdIMjA2LjAyMVYxNTYuNTE5VjE2NC42ODJWMjI5LjgzNkgyMzIuNzU3VjE5MC4wN0gyNzIuNTIzTDMxMy41NjIgMjI5LjkxMUgzNDguMDEyTDI5Ny44MzYgMTc4LjAxMkwzNDguMDEyIDEyNC4zMTdaIiBmaWxsPSIjRTdGRjAwIi8+CjxwYXRoIGQ9Ik01OC43ODgzIDE3Ny4xMTRDNTguNzg4MyAyMDYuMTcxIDgyLjQ1MzQgMjI5LjgzNiAxMTEuNTExIDIyOS44MzZIMTkyLjI0MVYyMDMuODQ5SDExMS41MTFDOTYuNzU3MyAyMDMuODQ5IDg0Ljc3NSAxOTEuODY3IDg0Ljc3NSAxNzcuMTE0Qzg0Ljc3NSAxNjIuMzYgOTYuNzU3MyAxNTAuMzc4IDExMS41MTEgMTUwLjM3OEgxOTIuMjQxVjEyNC4zOTFIMTExLjUxMUM4Mi40NTM0IDEyNC4zOTEgNTguNzg4MyAxNDguMDU3IDU4Ljc4ODMgMTc3LjExNFoiIGZpbGw9IiNFN0ZGMDAiLz4KPC9zdmc+Cg==">
+<script>try{if(localStorage.getItem('stack_ds_ok')==='1')document.documentElement.classList.add('unlocked')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* marca — oficiais (Brandbook Stack v1.1) */
+    --black:#000000;
+    --lime:#E7FF00;
+    --white:#FFFFFF;
+    --grey:#898989;
+    --dark:#121212;
+    /* interface — derivadas (usadas em stack.com.br) */
+    --raised:#1C1C1C;
+    --off:#F0F0EA;
+    --ink:#000000;
+    --ink-2:#444444;
+    --line-d:rgba(255,255,255,.14);
+    --line-l:rgba(0,0,0,.12);
+    --on-dark-2:rgba(255,255,255,.68);
+
+    --font:"Roboto",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    --mono:"Roboto Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+
+    --r-0:0; --r-ui:4px; --r-input:4px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+  h1,h2,h3,h4{font-family:var(--font);margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.08}
+  p{margin:0 0 14px;color:var(--ink-2)}
+  img{display:block;max-width:100%}
+  svg{display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  code,.mono{font-family:var(--mono);font-size:.86em}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.show{opacity:1;transform:none}
+  .mk{background:linear-gradient(transparent 58%,var(--lime) 58%);padding:0 .06em}
+  .lm{color:var(--lime)}
+  .sprite{position:absolute;width:0;height:0;overflow:hidden}
+  .lg{height:40px;width:auto;color:var(--lime);--wm:currentColor;--sig:currentColor}
+  .lg.two{--wm:var(--lime);--sig:#fff}
+
+  /* ---------- nav ---------- */
+  nav.top{position:sticky;top:0;z-index:60;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 32px;border-bottom:1px solid var(--line-d)}
+  nav.top .brand{display:flex;align-items:center;gap:14px;color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  nav.top .brand svg{height:16px;width:auto}
+  nav.top .brand span{color:var(--grey);font-weight:500}
+  nav.top ul{list-style:none;display:flex;gap:16px;margin:0;padding:0}
+  nav.top a{white-space:nowrap;color:var(--grey);text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;position:relative;padding:4px 0;transition:color .15s}
+  nav.top a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--lime);transition:width .2s}
+  nav.top a:hover,nav.top a.active{color:#fff}
+  nav.top a:hover::after,nav.top a.active::after{width:100%}
+  nav.top a.btn-pdf{color:#000}
+  nav.top a.btn-pdf::after{display:none}
+
+  /* ---------- botões (componentes reais) ---------- */
+  .btn{font-family:var(--font);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid transparent;border-radius:var(--r-0);padding:14px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:background .15s,color .15s,border-color .15s;line-height:1}
+  .btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+  .btn-lime{background:var(--lime);color:#000;border-color:var(--lime)}
+  .btn-lime:hover{background:#000;color:var(--lime);border-color:#000}
+  .on-dark .btn-lime:hover,.dark .btn-lime:hover,.black .btn-lime:hover{background:#fff;color:#000;border-color:#fff}
+  .btn-outline{background:transparent;color:#000;border-color:#000}
+  .btn-outline:hover{background:#000;color:#fff}
+  .on-dark .btn-outline,.dark .btn-outline,.black .btn-outline{color:#fff;border-color:#fff}
+  .on-dark .btn-outline:hover,.dark .btn-outline:hover,.black .btn-outline:hover{background:#fff;color:#000}
+  .btn-ghost{background:transparent;color:#000;padding-left:2px;padding-right:2px;text-transform:none;letter-spacing:0;font-size:15px}
+  .btn-ghost:hover{gap:14px}
+  .on-dark .btn-ghost,.dark .btn-ghost,.black .btn-ghost{color:#fff}
+  .btn-white{background:#fff;color:#000;border-color:#fff}
+  .btn-white:hover{background:var(--lime);border-color:var(--lime)}
+  .btn[disabled],.btn.is-disabled{background:#d9d9d9;color:#7a7a7a;border-color:#d9d9d9;cursor:not-allowed}
+  .btn-sm{padding:10px 18px;font-size:12px}
+  .btn-pdf{background:var(--lime);color:#000;padding:9px 16px;font-size:11px}
+
+  /* ---------- hero ---------- */
+  .hero{background:#000;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:min(100svh - 49px,860px)}
+  .hero .pat{position:relative;order:2;width:100%;margin-top:auto;line-height:0;pointer-events:none}
+  .hero .pat svg{width:100%;height:auto;display:block}
+  .hero .wrap{position:relative;z-index:2;padding-top:88px;padding-bottom:56px;width:100%}
+  .h-kicker{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:10px}
+  .hero h1{font-weight:900;font-size:clamp(44px,7vw,108px);line-height:.96;letter-spacing:-.03em;margin:26px 0 22px;max-width:12ch}
+  .hero p{color:var(--on-dark-2);max-width:52ch;font-size:17px;margin:0 0 40px}
+  .hero .meta{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid var(--line-d);padding-top:22px;font-size:12.5px;color:var(--grey)}
+  .hero .meta b{display:block;color:#fff;font-weight:700}
+  .hero .lockup{height:64px;width:auto;margin-bottom:34px}
+
+  /* ---------- seções ---------- */
+  .section{padding:104px 0;background:#fff}
+  .section.off{background:var(--off)}
+  .section.dark{background:var(--dark);color:#fff}
+  .section.black{background:#000;color:#fff}
+  .dark p,.black p{color:var(--on-dark-2)}
+  .kicker{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .kicker .num{font-family:var(--mono);font-weight:500;letter-spacing:0;font-size:12px;color:var(--lime);background:#000;padding:4px 8px}
+  .dark .kicker,.black .kicker{color:var(--lime)}
+  .dark .kicker .num,.black .kicker .num{background:var(--lime);color:#000}
+  h2.title{font-weight:900;font-size:clamp(34px,4.6vw,60px);line-height:1;letter-spacing:-.03em;margin-bottom:22px;max-width:18ch}
+  .lead{font-size:18px;max-width:66ch;color:var(--ink-2)}
+  .dark .lead,.black .lead{color:var(--on-dark-2)}
+  h3.sub{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--ink);margin:56px 0 18px;display:flex;align-items:center;gap:10px}
+  h3.sub::before{content:'';width:10px;height:10px;background:var(--lime);flex:none}
+  .dark h3.sub,.black h3.sub{color:#fff}
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .chip-prop{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#000;background:var(--lime);padding:3px 8px;vertical-align:middle;margin-left:8px;white-space:nowrap}
+
+  /* ---------- cards ---------- */
+  .card{background:#fff;border:1px solid var(--line-l);padding:26px;transition:border-color .2s}
+  .card:hover{border-color:#000}
+  .card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+  .card p{font-size:14.5px;margin:0}
+  .card .idx{font-family:var(--mono);font-weight:500;font-size:13px;color:#000;background:var(--lime);display:inline-block;padding:4px 8px;margin-bottom:16px}
+  .dark .card,.black .card{background:var(--raised);border-color:var(--line-d);color:#fff}
+  .black .card{background:#0d0d0d}
+  .dark .card:hover,.black .card:hover{border-color:var(--lime)}
+  .dark .card p,.black .card p{color:var(--on-dark-2)}
+  .card.lime{background:var(--lime);border-color:var(--lime);color:#000}
+  .card.lime p{color:#000}
+  .card.lime .idx{background:#000;color:var(--lime)}
+  .card.blk{background:#000;border-color:#000;color:#fff}
+  .card.blk p{color:var(--on-dark-2)}
+  .card.blk h3{color:#fff}
+  .attr{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .attr span{font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;border:1.5px solid #000;color:#000;padding:8px 14px;transition:.15s;cursor:default}
+  .attr span:hover{background:#000;color:var(--lime)}
+  .quote-bar{background:#000;color:#fff;padding:44px 52px;margin:48px 0 0;display:flex;gap:28px;align-items:flex-start;border-left:12px solid var(--lime)}
+  .quote-bar p{font-weight:900;letter-spacing:-.03em;font-size:clamp(26px,3.4vw,44px);line-height:1;color:#fff;margin:0}
+  .quote-bar small{display:block;margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+
+  /* ---------- logo ---------- */
+  .logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+  .logo-tile{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px}
+  .logo-tile svg{height:34px;width:auto}
+  .logo-tile.stk svg{height:70px}
+  .logo-tile.lk svg{height:52px}
+  .logo-tile small{font-size:11.5px;font-weight:600;opacity:.75;text-align:center}
+  .lt-black{background:#000;color:#fff}
+  .lt-dark{background:var(--dark);color:#fff}
+  .lt-white{background:#fff;color:#000}
+  .lt-lime{background:var(--lime);color:#000}
+  .lt-grey{background:var(--grey);color:#000}
+  .clear-demo{display:flex;gap:44px;align-items:center;flex-wrap:wrap;margin-top:28px}
+  .cs-box{position:relative;border:1.5px dashed var(--lime);padding:36px 40px}
+  .cs-box svg{height:40px;width:auto;color:var(--lime);outline:1px solid rgba(255,255,255,.25)}
+  .cs-box i{position:absolute;font-style:normal;font-family:var(--mono);font-size:11px;font-weight:500;color:#000;background:var(--lime);padding:1px 6px;line-height:1.4}
+  .cs-box .xt{top:6px;left:50%;transform:translateX(-50%)}
+  .cs-box .xl{left:7px;top:50%;transform:translateY(-50%)}
+  .cs-box .xr{right:7px;top:50%;transform:translateY(-50%)}
+  .cs-box .xb{bottom:6px;left:50%;transform:translateX(-50%)}
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .dd3{grid-template-columns:repeat(3,1fr)}
+  .dd > div{padding:24px 26px;background:var(--raised);border:1px solid var(--line-d)}
+  .dd h4{font-size:12.5px;margin-bottom:12px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+  .dd .ok h4{color:var(--lime)}.dd .no h4{color:#ff8a8a}
+  .dd ul{list-style:none;margin:0;padding:0}
+  .dd li{font-size:14px;color:#ddd;padding:9px 0 9px 22px;position:relative;border-top:1px solid var(--line-d)}
+  .dd li:first-child{border-top:none}
+  .dd li::before{content:'';position:absolute;left:0;top:17px;width:10px;height:2px;background:var(--lime)}
+  .dd .no li::before{background:#ff8a8a}
+  .wrong{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  .wrong > div{background:#fff;height:112px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .wrong svg{height:22px;width:auto}
+  .wrong span{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-size:10.5px;font-weight:700;color:#c0283a;letter-spacing:.04em;text-transform:uppercase}
+  .wrong .x{position:absolute;top:8px;right:10px;color:#c0283a;font-weight:900;font-size:16px}
+  .cobrand{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .cobrand > div{padding:26px 28px;border:1px solid var(--line-d);background:var(--raised)}
+  .cobrand h4{color:#fff;font-size:15px;margin-bottom:8px}
+  .cobrand p{font-size:14px;margin:0 0 16px}
+  .cobrand .demo{display:flex;gap:12px;flex-wrap:wrap}
+  .cobrand .demo > div{flex:1;min-width:160px;height:92px;display:flex;align-items:center;justify-content:center;gap:14px}
+  .cobrand .demo svg{height:22px;width:auto}
+  .cobrand .demo img{height:22px}
+
+  /* ---------- cores ---------- */
+  .sw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .sw{min-height:220px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative;transition:transform .2s;color:#fff;border:1px solid transparent}
+  .sw:hover{transform:translateY(-4px)}
+  .sw.light{color:#000}
+  .sw.bordered{border-color:var(--line-l)}
+  .sw .nm{font-weight:800;font-size:17px;line-height:1.1;letter-spacing:-.01em}
+  .sw .role{font-size:12.5px;opacity:.8;margin-top:6px;line-height:1.4}
+  .sw .codes{font-size:11.5px;line-height:1.7;font-family:var(--mono)}
+  .sw .codes b{opacity:.6;font-weight:500;margin-right:6px}
+  .sw .hint{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#000;color:var(--lime);padding:3px 8px;opacity:0;transition:opacity .2s}
+  .sw.light .hint{background:#000;color:var(--lime)}
+  .sw:hover .hint{opacity:1}
+  .sw.wide{grid-column:span 2}
+  .proportion{display:flex;height:64px;overflow:hidden;margin-top:16px;border:1px solid var(--line-l)}
+  .proportion div{display:flex;align-items:flex-end;padding:10px 12px;font-size:11.5px;font-weight:700}
+  .ctr-table{width:100%;border-collapse:collapse;margin-top:12px}
+  .ctr-table td{padding:12px 14px;border-top:1px solid var(--line-l);font-size:14px;vertical-align:middle}
+  .ctr-table tr:first-child td{border-top:none}
+  .ctr-pair{display:inline-flex;align-items:center;justify-content:center;width:150px;height:44px;font-weight:700;font-size:14px}
+  .ctr-badge{font-weight:800;font-size:11px;letter-spacing:.06em;padding:3px 9px;display:inline-block}
+  .ctr-badge.aaa{background:#000;color:var(--lime)}.ctr-badge.aa{background:var(--lime);color:#000}.ctr-badge.lg{background:#eee;color:#000;border:1px solid #000}.ctr-badge.no{background:#c0283a;color:#fff}
+
+  /* ---------- tipografia ---------- */
+  .fam{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .fam .card .big{font-size:60px;line-height:1;margin:6px 0 14px;letter-spacing:-.03em}
+  .fam .label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .fam .meta{font-size:12.5px;color:var(--ink-2);margin-top:14px}
+  .weights{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:15px}
+  .scale{margin-top:16px}
+  .scale-row{display:grid;grid-template-columns:90px 1fr 230px;align-items:baseline;gap:18px;padding:16px 0;border-top:1px solid var(--line-l)}
+  .scale-row:first-child{border-top:none}
+  .scale-row .tg{font-family:var(--mono);font-size:11.5px;color:#000;font-weight:500}
+  .scale-row .sp{font-family:var(--mono);font-size:11px;color:var(--grey);text-align:right}
+  .type-demo{background:#000;color:#fff;padding:56px;display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+  .type-demo .k{font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:18px}
+  .type-demo h3{font-size:clamp(34px,4.4vw,60px);font-weight:900;line-height:1;letter-spacing:-.03em}
+  .type-demo p{color:var(--on-dark-2);font-size:16px;margin:18px 0 24px;max-width:40ch}
+  .anat{list-style:none;margin:0;padding:0;counter-reset:a}
+  .anat li{counter-increment:a;display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line-d);font-size:14px;color:#ddd}
+  .anat li::before{content:counter(a);font-family:var(--mono);font-weight:500;color:var(--lime);font-size:14px;width:18px;flex:none}
+  .anat b{color:#fff}
+  .usar{display:grid;grid-template-columns:1fr auto 1fr;gap:0 24px;align-items:stretch;background:#000;color:#fff;padding:40px 44px}
+  .usar h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+  .usar h4.lm{color:var(--lime)}
+  .usar ul{list-style:none;margin:0;padding:0}
+  .usar li{padding:10px 0;border-top:1px solid var(--line-d);font-size:16px;font-weight:500}
+  .usar .arrow{display:flex;align-items:center;color:var(--lime);font-size:28px;font-weight:300}
+  .usar .foot{grid-column:1/-1;margin-top:22px;padding-top:16px;border-top:1px solid var(--line-d);font-size:13px;color:var(--grey)}
+
+  /* ---------- grid & forma ---------- */
+  .fluid-demo{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:stretch}
+  .fluid-demo > div:first-child{display:flex;flex-direction:column}
+  .pat-stage{background:#000;position:relative;flex:1;min-height:420px;overflow:hidden}
+  .pat-stage.light{background:#fff;border:1px solid var(--line-l)}
+  .pat-stage svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+  .pat-stage .lbl{position:absolute;left:28px;top:28px;color:#fff;font-weight:900;font-size:clamp(22px,2.6vw,34px);letter-spacing:-.03em;line-height:1;max-width:60%}
+  .pat-stage.light .lbl{color:#000}
+  .pat-ctl{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .rules{display:grid;gap:8px}
+  .rule{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line-l);padding:13px 16px}
+  .rule .n{font-family:var(--mono);font-weight:500;font-size:13px;color:#000;background:var(--lime);padding:3px 7px;line-height:1.3;flex:none}
+  .rule h4{font-size:15px;font-weight:700;margin-bottom:3px}
+  .rule p{font-size:13.5px;margin:0}
+  .cells{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+  .cell-tile{background:#000;padding:26px;display:flex;flex-direction:column;align-items:center;gap:14px;color:#fff}
+  .cell-tile svg{width:120px;height:120px}
+  .cell-tile small{font-size:12.5px;color:var(--grey);text-align:center}
+  .cell-tile b{font-size:13px}
+  .tok-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .tok{background:#fff;border:1px solid var(--line-l);padding:24px 26px}
+  .tok h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#000;margin-bottom:16px}
+  .sp-row{display:flex;align-items:center;gap:14px;padding:5px 0;font-size:12.5px}
+  .sp-row .bar{height:12px;background:#000}
+  .sp-row .v{font-family:var(--mono);color:var(--grey);width:96px;flex:none}
+  .rd-row{display:flex;gap:14px;flex-wrap:wrap}
+  .rd{width:84px;text-align:center;font-size:11.5px;color:var(--grey)}
+  .rd div{height:64px;background:#000;margin-bottom:8px}
+  .sh-row{display:flex;gap:16px;flex-wrap:wrap}
+  .sh{width:130px;height:72px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:11.5px;color:var(--grey);border:1px solid var(--line-l);text-align:center;padding:8px}
+
+  /* ---------- texturas & imagem ---------- */
+  .tex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .tex{overflow:hidden;position:relative;aspect-ratio:1/1;background:#000;border:1px solid var(--line-d)}
+  .tex.wide{grid-column:span 2;aspect-ratio:2/1}
+  .tex img{width:100%;height:100%;object-fit:cover}
+  .tex .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent);color:#fff;font-size:12px}
+  .tex .cap b{display:block;font-size:13.5px}
+  .tex.lime{background:var(--lime);display:flex;align-items:flex-start;padding:18px}
+  .tex.lime svg{height:28px;width:auto;color:#000}
+  .tex.lime .cap{background:none;color:#000}
+  .tex.white{background:#fff}
+  .tex.white .cap{color:#000;background:linear-gradient(0deg,rgba(255,255,255,.9),transparent)}
+  .tex svg.gen{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+  .ph-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .ph-rules .card{padding:22px}
+
+  /* ---------- componentes ---------- */
+  .comp{background:#fff;border:1px solid var(--line-l);padding:30px;margin-bottom:16px}
+  .comp > .ct{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+  .comp > .ct h3{font-size:18px;font-weight:700}
+  .comp > .ct span{font-size:12px;color:var(--grey);font-family:var(--mono)}
+  .comp .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .comp .on-dark{background:#000;padding:28px;margin-top:18px}
+  .comp .cap{font-size:12.5px;color:var(--ink-2);margin-top:14px}
+  .c-kicker{font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#000;display:inline-flex;gap:8px;align-items:center}
+  .c-kicker.on-d{color:var(--lime)}
+  .tag{font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;display:inline-block;line-height:1}
+  .tag-lime{background:var(--lime);color:#000}
+  .tag-black{background:#000;color:#fff}
+  .tag-line{border:1.5px solid #000;color:#000}
+  .tag-grey{background:#e6e6e6;color:#000}
+  .on-dark .tag-line{border-color:#fff;color:#fff}
+  .meta-mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+  .field{display:grid;gap:7px;min-width:280px}
+  .field label{font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#000}
+  .field input{font-family:var(--font);font-size:15px;padding:13px 14px;border-radius:var(--r-input);border:1.5px solid #000;background:#fff;color:#000;outline:none;transition:box-shadow .15s}
+  .field input::placeholder{color:#9a9a9a}
+  .field input:focus{box-shadow:0 0 0 3px var(--lime)}
+  .field.err input{border-color:#c0283a;box-shadow:0 0 0 3px rgba(192,40,58,.15)}
+  .field .help{font-size:12.5px;color:var(--ink-2)}
+  .field.err .help{color:#b3222f}
+  .chk{display:flex;gap:10px;align-items:center;font-size:14px}
+  .chk i{width:20px;height:20px;border:1.5px solid #000;display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .chk i.on{background:var(--lime)}
+  .chk i.on::after{content:'';width:5px;height:10px;border:solid #000;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+  .cc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .c-course{background:#fff;border:1px solid var(--line-l);border-top:4px solid #000;display:flex;flex-direction:column;padding:24px;gap:12px;transition:border-color .2s}
+  .c-course:hover{border-color:#000;border-top-color:var(--lime)}
+  .c-course h4{font-size:19px;font-weight:800;line-height:1.1;letter-spacing:-.02em}
+  .c-course p{font-size:14px;margin:0}
+  .c-course .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .c-course .ft{margin-top:auto;padding-top:10px}
+  .c-course.dark{background:#000;border-color:#000;border-top-color:var(--lime);color:#fff}
+  .c-course.dark h4{color:#fff}.c-course.dark p{color:var(--on-dark-2)}
+  .c-course.dark .btn-ghost{color:#fff}
+  .stat{background:#000;color:#fff;padding:26px;border-top:4px solid var(--lime)}
+  .stat .n{font-weight:900;font-size:56px;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  .stat .n.lm{color:var(--lime)}
+  .stat p{color:#fff;margin:10px 0 0;font-size:14.5px}
+  .stat small{display:block;margin-top:10px;font-size:11.5px;color:var(--grey);font-family:var(--mono)}
+  .stat.light{background:#fff;color:#000;border:1px solid var(--line-l);border-top:4px solid #000}
+  .stat.light p{color:#000}
+  .faq details{border-top:1px solid var(--line-l)}
+  .faq details:last-child{border-bottom:1px solid var(--line-l)}
+  .faq summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:16px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';font-weight:300;font-size:26px;line-height:1;color:#000}
+  .faq details[open] summary::after{content:'–'}
+  .faq details p{font-size:14.5px;margin:0 0 16px;max-width:66ch}
+  .cta-band{background:#000;color:#fff;padding:40px 44px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;position:relative;overflow:hidden;border-left:12px solid var(--lime)}
+  .cta-band h4{font-size:clamp(24px,3vw,38px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:8px}
+  .cta-band p{color:var(--on-dark-2);margin:0;max-width:44ch}
+  .seal{display:inline-flex;align-items:center;gap:16px;padding:16px 22px;background:#000}
+  .seal svg{height:34px;width:auto}
+  .alert{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;font-size:14px;max-width:420px;border:1px solid;background:#fff}
+  .alert i{width:22px;height:22px;flex:none;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:13px;font-family:var(--mono)}
+  .alert.info{border-color:#000;color:#000}.alert.info i{background:#000;color:var(--lime)}
+  .alert.warn{border-color:#000;color:#000;background:var(--lime)}.alert.warn i{background:#000;color:var(--lime)}
+  .alert.err{border-color:#c0283a;color:#8f1d29}.alert.err i{background:#c0283a;color:#fff}
+  .alert.ok{border-color:#1f7a3a;color:#14602a}.alert.ok i{background:#1f7a3a;color:#fff}
+
+  /* ---------- peças (mockups em unidade 1080) ---------- */
+  .pieces{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+  .pc-wrap{display:flex;flex-direction:column;gap:12px}
+  .pc-wrap .pc-cap{font-size:12.5px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px}
+  .pc-wrap .pc-cap b{color:#000;font-size:13.5px}
+  .piece{container-type:inline-size;position:relative;overflow:hidden;background:#000;--u:calc(100cqw / 1080);border:1px solid var(--line-l)}
+  .piece *{box-sizing:border-box}
+  .piece .a{position:absolute}
+  .piece .pat{position:absolute;left:0;right:0;bottom:0}
+  .piece .pat svg{width:100%;height:auto;display:block}
+  .p-feed{grid-column:span 5}
+  .p-story{grid-column:span 3}
+  .p-thumb{grid-column:span 4}
+  .p-slide{grid-column:span 8}
+  .p-og{grid-column:span 4}
+  .piece.sq{aspect-ratio:1/1}
+  .piece.st{aspect-ratio:9/16}
+  .piece.wd{aspect-ratio:16/9;--u:calc(100cqw / 1920)}
+  .piece.og{aspect-ratio:1200/630;--u:calc(100cqw / 1200)}
+  .T{font-family:var(--font);font-weight:900;letter-spacing:-.03em;line-height:.98}
+  .R{font-family:var(--font);font-weight:400}
+  .M{font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+  .K{font-family:var(--font);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+  /* ---------- comunicação ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);margin-top:36px}
+  .pillar{background:var(--dark);padding:30px}
+  .pillar .num{font-family:var(--mono);color:var(--lime);font-size:13px;margin-bottom:14px}
+  .pillar h3{color:#fff;margin-bottom:10px;font-size:20px}
+  .pillar p{font-size:14px;margin:0 0 12px}
+  .pillar .ex{font-size:13.5px;color:#fff;border-top:1px solid var(--line-d);padding-top:12px;margin-top:4px}
+  .pillar .ex b{color:var(--lime);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11px;display:block;margin-bottom:4px}
+  .def{background:#000;color:#fff;padding:44px 48px;border-left:12px solid var(--lime)}
+  .def .k{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:16px}
+  .def p.big{font-weight:900;font-size:clamp(24px,3.2vw,40px);line-height:1.05;letter-spacing:-.03em;color:#fff;margin:0 0 10px;max-width:24ch}
+  .def small{display:block;font-size:13px;color:var(--grey)}
+  .brand-rules{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);border-top:0}
+  .brand-rules > div{background:var(--dark);padding:22px 20px}
+  .brand-rules .n{font-family:var(--mono);color:var(--lime);font-size:12px;margin-bottom:10px}
+  .brand-rules h4{color:#fff;font-size:14.5px;margin-bottom:8px}
+  .brand-rules p{font-size:13px;margin:0}
+  .brand-rules p b{color:#fff;font-weight:500}
+  .hier{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;margin-top:20px}
+  .hier > div{padding:24px;background:#fff;border:1px solid var(--line-l);color:var(--ink)}
+  .hier .lv{font-family:var(--mono);font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .hier h4{font-size:20px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+  .hier p{font-size:13.5px;margin:0}
+  .hier .ar{display:flex;align-items:center;font-size:26px;font-weight:300;padding:0 !important;background:none !important;border:none !important;color:#fff !important}
+  .hier > div p{color:var(--ink-2)}
+  .hier > div:first-of-type{background:#000;color:#fff;border-color:#000}
+  .hier > div:first-of-type h4{color:var(--lime)}
+  .hier > div:first-of-type p{color:var(--on-dark-2)}
+  .rw{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border:1px solid var(--line-l);color:var(--ink)}
+  .rw th,.rw td{text-align:left;padding:14px 16px;border-top:1px solid var(--line-l);vertical-align:top;font-size:14px}
+  .rw thead th{border-top:0;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);font-weight:700}
+  .rw td.no{color:#8f1d29}
+  .rw td.no::before{content:'✕ ';font-weight:800}
+  .rw td.yes{font-weight:500}
+  .rw td.yes::before{content:'✓ ';font-weight:800;color:#1f7a3a}
+  .rw td.why{color:var(--ink-2);font-size:13px}
+  .voice-ex{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+  .vx{padding:30px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+  .vx .lb{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .vx p{font-size:24px;font-weight:800;line-height:1.08;letter-spacing:-.025em;margin:0;color:inherit}
+  .vx small{display:block;margin-top:14px;font-size:11.5px;font-family:var(--mono);opacity:.7}
+  .dodont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .dodont > div{padding:24px 28px;background:#fff;border:1px solid var(--line-l);color:var(--ink)}
+  .dodont h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+  .dodont .do h4{color:#1f7a3a}.dodont .dont h4{color:#9a1b27}
+  .dodont li{font-size:14.5px;padding:8px 0;border-top:1px solid var(--line-l);list-style:none}
+  .dodont ul{margin:0;padding:0}
+  .dodont li:first-child{border-top:none}
+  .vocab{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .vocab > div{padding:24px 28px;border:1px solid var(--line-d);background:var(--raised)}
+  .vocab h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;color:var(--lime)}
+  .vocab .no h4{color:#ff8a8a}
+  .vocab .w{display:flex;flex-wrap:wrap;gap:8px}
+  .vocab .w span{font-size:13.5px;padding:7px 12px;border:1px solid var(--line-d);color:#fff}
+  .vocab .no .w span{color:#bbb;text-decoration:line-through;text-decoration-color:#ff8a8a}
+  .vocab p{font-size:13px;margin:14px 0 0}
+  .check{columns:2;column-gap:36px;margin-top:16px;padding:0}
+  .check li{list-style:none;position:relative;padding:9px 0 9px 32px;font-size:14.5px;break-inside:avoid;border-bottom:1px solid var(--line-l)}
+  .check li::before{content:'';position:absolute;left:0;top:11px;width:18px;height:18px;border:1.5px solid #000}
+  .check li b{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--grey);margin-right:6px}
+  .nums{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border:1px solid var(--line-l);color:var(--ink)}
+  .nums th,.nums td{text-align:left;padding:12px 16px;border-top:1px solid var(--line-l);font-size:14px;vertical-align:top}
+  .nums thead th{border-top:0;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+  .nums td:first-child{font-weight:900;font-size:20px;letter-spacing:-.02em;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .nums td.src{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+
+  /* ---------- tokens / IA ---------- */
+  .code-card{background:#000;border:1px solid var(--line-d);padding:0;overflow:hidden;margin-top:20px}
+  .code-card .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line-d);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+  .code-card pre{margin:0;padding:22px 24px;overflow:auto;max-height:460px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:#ddd}
+  .code-card pre .k{color:var(--lime)}.code-card pre .v{color:#fff}.code-card pre .c{color:#777}
+  textarea#mdOut{width:100%;min-height:340px;margin-top:16px;padding:20px 22px;border:1px solid var(--line-d);background:#000;color:#ddd;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;display:none}
+
+  footer{background:#000;color:var(--grey);padding:64px 32px;text-align:center;font-size:13px}
+  footer svg{height:30px;width:auto;margin:0 auto 20px;color:var(--lime)}
+  footer b{color:var(--lime)}
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--lime);color:#000;padding:12px 22px;font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:300}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* ---------- responsivo ---------- */
+  @media@media screen and (max-width:1240px){ nav.top ul{display:none} }
+  @media screen and (max-width:980px){
+    .hero .pat{width:100%}
+    .g3,.g4,.fam,.cc-grid,.voice-ex,.ph-rules,.pillars,.cells{grid-template-columns:1fr 1fr}
+    .sw-grid{grid-template-columns:1fr 1fr}
+    .tex-grid{grid-template-columns:1fr 1fr}
+    .fluid-demo,.type-demo,.tok-grid,.dodont,.dd,.dd3,.cobrand,.vocab,.usar{grid-template-columns:1fr}
+    .usar .arrow{transform:rotate(90deg);justify-content:center;padding:10px 0}
+    .brand-rules{grid-template-columns:1fr 1fr}
+    .hier{grid-template-columns:1fr}
+    .hier .ar{transform:rotate(90deg);justify-content:center}
+    .pieces{grid-template-columns:1fr 1fr}
+    .p-feed,.p-story,.p-thumb,.p-slide,.p-og{grid-column:span 2}
+    .logo-grid{grid-template-columns:1fr 1fr}
+    .wrong{grid-template-columns:1fr 1fr}
+    .scale-row{grid-template-columns:70px 1fr}
+    .scale-row .sp{grid-column:1/-1;text-align:left}
+  }
+  @media screen and (max-width:600px){
+    .wrap{padding:0 20px}
+    .section{padding:72px 0}
+    .g2,.g3,.g4,.fam,.cc-grid,.voice-ex,.ph-rules,.sw-grid,.logo-grid,.wrong,.tex-grid,.pillars,.cells,.brand-rules{grid-template-columns:1fr}
+    .sw.wide,.tex.wide{grid-column:auto}
+    .pieces{grid-template-columns:1fr}
+    .p-feed,.p-story,.p-thumb,.p-slide,.p-og{grid-column:auto}
+    .check{columns:1}
+    .quote-bar,.def{padding:30px 26px}
+    .type-demo,.usar{padding:32px 26px}
+    .cta-band{padding:30px 26px}
+    .scale-row span[style*='font-size:56px']{font-size:34px !important}
+    .scale-row span[style*='font-size:42px']{font-size:30px !important}
+    .ctr-table,.ctr-table tbody{display:block}
+    .ctr-table tr{display:grid;grid-template-columns:116px 1fr;gap:4px 10px;padding:12px 0;border-top:1px solid var(--line-l)}
+    .ctr-table td{border:none !important;padding:2px 0 !important;width:auto !important}
+    .ctr-table td:nth-child(3){grid-column:1/-1;text-align:left !important}
+    .ctr-pair{width:108px}
+    .rw,.nums{display:block;overflow-x:auto}
+  }
+
+  /* ---------- login ---------- */
+  html:not(.unlocked) body{overflow:hidden;height:100vh}
+  html:not(.unlocked) body > *:not(#gate){visibility:hidden}
+  html.unlocked #gate{display:none}
+  #gate{position:fixed;inset:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;padding:24px;visibility:visible !important;overflow:hidden}
+  #gate .gb{position:absolute;left:0;right:0;bottom:0;opacity:.9}
+  #gate .gb svg{width:100%;height:auto;display:block}
+  .gate-card{position:relative;background:#fff;padding:44px 40px 38px;width:100%;max-width:420px;text-align:left;border-top:8px solid var(--lime)}
+  .gate-card svg{height:28px;width:auto;margin-bottom:26px;color:#000}
+  .gate-card .gk{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#000;margin-bottom:8px}
+  .gate-card h2{font-weight:900;font-size:34px;line-height:1;letter-spacing:-.03em;margin-bottom:12px}
+  .gate-card p{font-size:14.5px;margin-bottom:22px}
+  .gate-card form{display:grid;gap:12px}
+  .gate-card label{font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .gate-card input{font-family:var(--font);font-size:16px;padding:13px 14px;border-radius:var(--r-input);border:1.5px solid #000;outline:none;width:100%}
+  .gate-card input:focus{box-shadow:0 0 0 3px var(--lime)}
+  .gate-card .btn{justify-content:center;width:100%}
+  .gate-card .gerr{min-height:20px;font-size:13.5px;font-weight:600;color:#b3222f;margin-top:2px}
+  .gate-card.shake{animation:gshake .35s ease}
+  @keyframes gshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+    .reveal{opacity:1;transform:none}
+  }
+
+  /* ---------- impressão ---------- */
+  @media print{
+    @page{size:1280px 1810px;margin:0}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    html,body{width:1280px;height:auto;overflow:visible}
+    html:not(.unlocked) body > *{visibility:visible !important}
+    #gate{display:none !important}
+    nav.top,.btn-pdf,#ia .actions,.toast,#mdOut,.pat-ctl{display:none !important}
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+    *{animation:none !important}
+    .hero{min-height:1810px;height:1810px;break-after:page}
+    .section{padding:48px 0;break-before:page}
+    .logo-tile{height:128px}
+    .wrong > div{height:92px}
+    .llm-block{display:none !important}
+    h2.title,h3.sub{break-after:avoid}
+    .card,.comp,.rule,.logo-tile,.tex,.sw,.pc-wrap,.tok,.vx,.c-course,.quote-bar,.dd > div,.type-demo,.scale-row,.stat,.cta-band,.alert,.cell-tile,.wrong > div,.dodont > div,.code-card,.pillar,.def,.brand-rules,.hier,.rw tr,.vocab > div,.nums tr,.usar{break-inside:avoid}
+    .proportion,.g2,.g3,.g4,.cc-grid,.voice-ex,.dodont,.tok-grid,.fluid-demo,.fam,.ph-rules,.pieces,.pillars,.cobrand{break-inside:avoid}
+    .code-card pre{max-height:none;overflow:visible}
+    footer{break-before:avoid;padding:48px 32px}
+  }
+</style>
+</head>
+<body>
+
+<!-- sprite: os três arranjos do logo, com fill herdado (currentColor / --wm / --sig) -->
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="s-wordmark" viewBox="0 0 543 81"><path fill="currentColor" d="M542.366 0.0877952H516.029L486.004 30.4631H454.137V0.0877952H433.682V80.8544H454.137V50.3914H484.6L516.029 80.8544H542.366L503.914 41.1735L542.366 0.0877952ZM81.03 30.4631H78.8353H23.9666C21.7719 30.4631 19.9282 28.6195 19.9282 26.4247V19.9283H91.038L94.5496 0H19.9282C8.95452 0 0 8.95457 0 19.9283V30.4631C0 41.4368 8.95452 50.3914 19.9282 50.3914H24.5812H76.9916C79.1864 50.3914 81.03 52.235 81.03 54.4297V56.8878C81.03 59.0826 79.1864 60.9262 76.9916 60.9262H0V80.8544H81.03C92.0037 80.8544 100.958 71.8999 100.958 60.9262V50.3914C100.958 39.4177 92.0037 30.4631 81.03 30.4631ZM291.55 0.0877952H223.864L220.352 20.0161H287.512C289.706 20.0161 291.55 21.8597 291.55 24.0544V24.9323V30.5509H291.374H230.448C219.475 30.5509 210.52 39.4176 210.52 50.4792V61.0139C210.52 71.9877 219.475 80.9422 230.448 80.9422H272.236C281.63 80.9422 289.443 74.4458 291.55 65.7546V80.9422H311.478V30.6387V20.1039C311.478 9.13017 302.524 0.17559 291.55 0.17559V0.0877952ZM291.55 60.9262H234.487C232.292 60.9262 230.448 59.0826 230.448 56.8878V54.4297C230.448 52.3227 232.029 50.6548 234.048 50.3914H291.55V60.8383V60.9262ZM320.872 40.4711C320.872 62.7697 338.957 80.8544 361.255 80.8544H423.059V60.9262H361.255C349.93 60.9262 340.8 51.7082 340.8 40.4711C340.8 29.234 350.018 20.0161 361.255 20.0161H423.059V0.0877952H361.255C338.957 0.0877952 320.872 18.1725 320.872 40.4711ZM214.119 0.0877952H104.119L100.607 20.0161H161.182C152.315 22.0352 145.643 29.9364 145.643 39.4177V80.8544H165.572V20.0161H210.608L214.119 0.0877952Z"/></symbol>
+  <symbol id="s-stacked" viewBox="0 0 407 230"><path fill="currentColor" d="M105.819 39.7663H102.973H31.2289C28.3082 39.7663 25.9867 37.3699 25.9867 34.5241V26.0615H118.85L123.418 0.0748712H25.9867C11.6079 0.0748712 0 11.7576 0 26.0615V39.8412C0 54.22 11.6828 65.8279 25.9867 65.8279H32.1276H100.577C103.497 65.8279 105.819 68.2243 105.819 71.0701V74.2904C105.819 77.2111 103.422 79.5327 100.577 79.5327H0V105.519H105.819C120.198 105.519 131.806 93.8366 131.806 79.5327V65.753C131.806 51.3742 120.123 39.7663 105.819 39.7663ZM380.813 0.0748712H292.369L287.8 26.0615H375.571C378.492 26.0615 380.813 28.458 380.813 31.3038V32.4272V39.7663H380.589H300.981C286.602 39.7663 274.994 51.3742 274.994 65.753V79.5327C274.994 93.9115 286.602 105.519 300.981 105.519H355.576C367.782 105.519 378.042 97.0568 380.813 85.7485V105.519H406.8V39.7663V25.9867C406.8 11.6079 395.192 0 380.813 0V0.0748712ZM380.813 79.5327H306.298C303.377 79.5327 301.056 77.1362 301.056 74.2904V71.0701C301.056 68.3741 303.078 66.1274 305.774 65.8279H380.888V79.5327H380.813ZM279.712 0.0748712H135.999L131.431 26.0615H210.589C198.981 28.6827 190.294 39.0174 190.294 51.4491V105.594H216.281V26.0615H275.144L279.712 0.0748712Z"/><path fill="currentColor" d="M348.012 124.317H313.562L274.395 164.083H232.757V156.519V124.317H206.021V156.519V164.682V229.836H232.757V190.07H272.523L313.562 229.911H348.012L297.836 178.012L348.012 124.317Z"/><path fill="currentColor" d="M58.7883 177.114C58.7883 206.171 82.4534 229.836 111.511 229.836H192.241V203.849H111.511C96.7573 203.849 84.775 191.867 84.775 177.114C84.775 162.36 96.7573 150.378 111.511 150.378H192.241V124.391H111.511C82.4534 124.391 58.7883 148.057 58.7883 177.114Z"/></symbol>
+  <symbol id="s-lockup" viewBox="0 0 543 137">
+    <path style="fill:var(--wm,currentColor)" d="M542.366 0.0877952H516.029L486.004 30.4631H454.137V0.0877952H433.682V80.8544H454.137V50.3914H484.6L516.029 80.8544H542.366L503.914 41.1735L542.366 0.0877952ZM81.03 30.4631H78.8353H23.9666C21.7719 30.4631 19.9282 28.6195 19.9282 26.4247V19.9283H91.038L94.5496 0H19.9282C8.95452 0 0 8.95457 0 19.9283V30.4631C0 41.4368 8.95452 50.3914 19.9282 50.3914H24.5812H76.9916C79.1864 50.3914 81.03 52.235 81.03 54.4297V56.8878C81.03 59.0826 79.1864 60.9262 76.9916 60.9262H0V80.8544H81.03C92.0037 80.8544 100.958 71.8999 100.958 60.9262V50.3914C100.958 39.4177 92.0037 30.4631 81.03 30.4631ZM291.55 0.0877952H223.864L220.352 20.0161H287.512C289.706 20.0161 291.55 21.8597 291.55 24.0544V24.9323V30.5509H291.374H230.448C219.475 30.5509 210.52 39.4176 210.52 50.4792V61.0139C210.52 71.9877 219.475 80.9422 230.448 80.9422H272.236C281.63 80.9422 289.443 74.4458 291.55 65.7546V80.9422H311.478V30.6387V20.1039C311.478 9.13017 302.524 0.17559 291.55 0.17559V0.0877952ZM291.55 60.9262H234.487C232.292 60.9262 230.448 59.0826 230.448 56.8878V54.4297C230.448 52.3227 232.029 50.6548 234.048 50.3914H291.55V60.8383V60.9262ZM320.872 40.4711C320.872 62.7697 338.957 80.8544 361.255 80.8544H423.059V60.9262H361.255C349.93 60.9262 340.8 51.7082 340.8 40.4711C340.8 29.234 350.018 20.0161 361.255 20.0161H423.059V0.0877952H361.255C338.957 0.0877952 320.872 18.1725 320.872 40.4711ZM214.119 0.0877952H104.119L100.607 20.0161H161.182C152.315 22.0352 145.643 29.9364 145.643 39.4177V80.8544H165.572V20.0161H210.608L214.119 0.0877952Z"/>
+    <g style="fill:var(--sig,currentColor)">
+    <path d="M276.919 120.343L282.313 115.211L282.578 114.963V113.412H271.278V115.217H280.052L274.37 120.621V122.155H277.385C279.574 122.155 281.415 123.028 281.415 125.393C281.415 127.758 279.504 129.138 276.989 129.138C274.475 129.138 273.101 128.165 271.725 127.192C271.147 127.976 270.634 128.761 270.634 128.761C272.033 129.864 273.597 130.938 276.954 130.938C280.618 130.938 283.403 128.738 283.403 125.293C283.403 122.474 281.238 120.35 277.821 120.35H276.919V120.344V120.343Z"/>
+    <path d="M241.041 122.141H235.347V115.21H241.041C243.998 115.21 244.458 117.605 244.458 118.679C244.458 119.753 243.997 122.148 241.041 122.148M240.516 113.406H233.364V130.695H235.353V123.947H240.51C244.706 123.947 246.488 121.599 246.488 118.679C246.488 115.759 244.706 113.406 240.51 113.406"/>
+    <path d="M265.349 113.406L258.616 127.179L251.883 113.406H249.499V130.694H251.494V117.075L258.05 130.7H259.183L265.744 117.075V130.694H267.739V113.406H265.349Z"/>
+    <path d="M223.044 109.436H204.026C202.309 109.436 200.916 110.828 200.916 112.544V131.556C200.916 133.273 202.309 134.664 204.026 134.664H215.964C217.987 134.664 220.071 132.37 220.071 129.757C220.071 126.796 217.197 124.395 214.235 124.395H210.176V122.956L217.865 115.653H206.322V113.4H221.612V114.951L221.352 115.199L214.136 122.135C218.573 122.135 222.332 125.793 222.332 129.751C222.332 131.697 221.63 133.332 220.532 134.658H223.04C224.757 134.658 226.15 133.266 226.15 131.55V112.544C226.15 110.828 224.757 109.436 223.04 109.436"/>
+    <path d="M377.544 120.511C377.497 120.78 377.353 120.948 377.163 121.094C376.949 121.241 376.783 121.315 376.592 121.388C376.212 121.534 375.78 121.681 375.352 121.825C374.924 121.996 374.492 122.143 374.112 122.262C373.659 122.433 373.204 122.579 372.824 122.724C372.513 122.87 372.229 123.041 371.941 123.258C371.702 123.478 371.513 123.719 371.322 124.062C371.13 124.38 371.035 124.792 371.035 125.278C371.035 126.253 371.274 126.984 371.726 127.469C372.178 127.931 373.038 128.199 374.28 128.199C375.523 128.199 376.403 127.93 376.879 127.445C377.331 126.935 377.571 126.228 377.571 125.303L377.547 120.505L377.544 120.511L377.544 120.511ZM374.299 110.237C376.517 110.237 378.165 110.675 379.213 111.576C380.24 112.477 380.764 113.596 380.764 114.938V126.382C380.764 126.844 380.668 127.357 380.501 127.916C380.333 128.476 380.025 128.989 379.545 129.45C379.067 129.912 378.402 130.302 377.566 130.617C376.731 130.932 375.635 131.079 374.296 131.079C372.957 131.079 371.862 130.907 371.028 130.617C370.192 130.327 369.524 129.911 369.048 129.45C368.572 128.989 368.236 128.476 368.093 127.916C367.925 127.357 367.829 126.844 367.829 126.382V124.555C367.829 123.579 368.093 122.678 368.569 121.878C369.07 121.074 369.761 120.49 370.668 120.173C371.12 120.002 371.623 119.855 372.22 119.638C372.792 119.418 373.363 119.25 373.914 119.03C374.462 118.834 374.917 118.663 375.346 118.519C375.75 118.348 376.013 118.275 376.109 118.226C376.205 118.178 376.349 118.104 376.489 118.007C376.657 117.909 376.8 117.762 376.965 117.618C377.133 117.423 377.253 117.23 377.345 117.01C377.465 116.765 377.513 116.5 377.513 116.181V115.451C377.513 115.182 377.465 114.942 377.345 114.648C377.25 114.354 377.058 114.137 376.821 113.893C376.558 113.649 376.226 113.481 375.818 113.334C375.411 113.187 374.887 113.113 374.243 113.113C372.98 113.113 372.145 113.382 371.665 113.917C371.285 114.378 371.046 114.941 370.997 115.598C370.997 115.744 370.878 115.842 370.734 115.842H367.991C367.847 115.842 367.728 115.72 367.728 115.573V114.892C367.728 114.235 367.847 113.627 368.087 113.065C368.326 112.502 368.707 111.992 369.255 111.555C369.779 111.142 370.447 110.775 371.282 110.555C372.166 110.384 373.141 110.237 374.288 110.237H374.301H374.299ZM330.259 120.511C330.211 120.78 330.067 120.948 329.879 121.094C329.663 121.241 329.498 121.315 329.306 121.388C328.926 121.534 328.495 121.681 328.067 121.825C327.639 121.996 327.207 122.143 326.827 122.262C326.375 122.433 325.92 122.579 325.54 122.724C325.228 122.87 324.944 123.041 324.656 123.258C324.417 123.478 324.228 123.719 324.037 124.062C323.845 124.404 323.749 124.792 323.749 125.278C323.749 126.253 323.989 126.984 324.441 127.469C324.894 127.931 325.753 128.199 326.996 128.199C328.238 128.199 329.119 127.93 329.594 127.445C330.046 126.935 330.286 126.228 330.286 125.303L330.262 120.505L330.259 120.511V120.511ZM326.989 110.237C329.208 110.237 330.854 110.675 331.902 111.576C332.93 112.477 333.453 113.596 333.453 114.938V126.382C333.453 126.844 333.358 127.357 333.19 127.916C333.023 128.476 332.714 128.989 332.235 129.45C331.755 129.912 331.09 130.302 330.255 130.617C329.42 130.932 328.324 131.079 326.986 131.079C325.647 131.079 324.551 130.907 323.716 130.617C322.881 130.327 322.213 129.911 321.737 129.45C321.261 128.989 320.926 128.476 320.782 127.916C320.614 127.357 320.519 126.844 320.519 126.382V124.555C320.519 123.579 320.782 122.678 321.258 121.878C321.758 121.074 322.449 120.49 323.357 120.173C323.809 120.002 324.312 119.855 324.908 119.638C325.48 119.418 326.052 119.25 326.602 119.03C327.15 118.834 327.605 118.663 328.034 118.519C328.437 118.348 328.701 118.275 328.797 118.226C328.892 118.178 329.037 118.104 329.177 118.007C329.345 117.909 329.489 117.762 329.653 117.618C329.821 117.423 329.94 117.23 330.033 117.01C330.154 116.765 330.201 116.5 330.201 116.181V115.451C330.201 115.182 330.154 114.942 330.033 114.648C329.938 114.354 329.746 114.137 329.51 113.893C329.245 113.649 328.914 113.481 328.507 113.334C328.099 113.187 327.575 113.113 326.931 113.113C325.668 113.113 324.832 113.382 324.353 113.917C323.973 114.378 323.733 114.941 323.685 115.598C323.685 115.744 323.566 115.842 323.422 115.842H320.752C320.607 115.842 320.488 115.72 320.488 115.573V114.892C320.488 114.235 320.608 113.627 320.847 113.065C321.086 112.502 321.467 111.992 322.015 111.555C322.539 111.142 323.207 110.775 324.042 110.555C324.854 110.384 325.832 110.237 326.977 110.237H326.989ZM364.517 110.237H366.355C366.522 110.237 366.642 110.408 366.594 110.555L365.974 112.991C365.95 113.113 365.83 113.186 365.734 113.186H364.447C363.755 113.186 363.207 113.284 362.776 113.48C362.372 113.676 362.013 113.869 361.796 114.137C361.558 114.406 361.437 114.648 361.369 114.917C361.297 115.21 361.273 115.451 361.273 115.696V130.89C361.273 131.037 361.153 131.159 361.01 131.159H358.267C358.123 131.159 358.003 131.037 358.003 130.89V115.012C358.003 114.719 358.052 114.306 358.171 113.771C358.267 113.237 358.53 112.723 358.982 112.188C359.41 111.678 360.057 111.213 360.938 110.825C361.773 110.436 362.989 110.241 364.516 110.241V110.238L364.517 110.237ZM355.213 125.672V126.378C355.213 126.696 355.165 127.109 355.045 127.644C354.949 128.153 354.685 128.692 354.234 129.202C353.806 129.712 353.16 130.177 352.278 130.565C351.396 130.932 350.204 131.124 348.677 131.124C347.15 131.124 345.958 130.929 345.074 130.565C344.191 130.202 343.571 129.737 343.119 129.202C342.692 128.692 342.404 128.154 342.308 127.619C342.211 127.084 342.14 126.693 342.14 126.378V110.482C342.14 110.335 342.26 110.213 342.403 110.213H345.123C345.266 110.213 345.386 110.335 345.386 110.482V125.357C345.386 125.843 345.458 126.21 345.529 126.479C345.601 126.748 345.745 127.039 345.933 127.283C346.149 127.551 346.457 127.744 346.889 127.915C347.293 128.086 347.868 128.184 348.584 128.184C349.3 128.184 349.919 128.086 350.35 127.915C350.781 127.744 351.114 127.548 351.33 127.307C351.569 127.062 351.71 126.821 351.781 126.527C351.853 126.234 351.949 126.017 351.949 125.335V110.481C351.949 110.334 352.068 110.212 352.212 110.212H354.931C355.075 110.212 355.194 110.334 355.194 110.481L355.218 125.675L355.212 125.671L355.213 125.672ZM336.46 102.714H339.178C339.323 102.714 339.442 102.836 339.442 102.983V130.886C339.442 131.033 339.322 131.155 339.178 131.155H336.46C336.316 131.155 336.197 131.033 336.197 130.886V102.983C336.197 102.836 336.317 102.714 336.46 102.714Z"/>
+    <path d="M169.914 122.653H165.184L165.161 121.453H169.233C170.064 121.453 170.771 121.334 171.356 121.096C171.94 120.857 172.382 120.503 172.682 120.034C172.99 119.558 173.144 118.973 173.144 118.281C173.144 117.573 172.994 116.989 172.694 116.527C172.394 116.058 171.944 115.712 171.344 115.489C170.744 115.266 169.99 115.155 169.083 115.155H165.553V130.728H164.134V113.932H169.083C169.937 113.932 170.702 114.016 171.379 114.186C172.055 114.355 172.632 114.62 173.109 114.982C173.586 115.343 173.947 115.801 174.193 116.354C174.447 116.9 174.574 117.554 174.574 118.315C174.574 119.008 174.42 119.634 174.113 120.196C173.805 120.75 173.37 121.203 172.809 121.557C172.255 121.903 171.59 122.119 170.813 122.203L169.914 122.653ZM169.81 130.728H164.734L165.461 129.517H169.81C170.64 129.517 171.348 129.378 171.932 129.102C172.525 128.817 172.978 128.413 173.294 127.89C173.609 127.367 173.767 126.744 173.767 126.022C173.767 125.383 173.628 124.81 173.351 124.303C173.074 123.795 172.651 123.395 172.082 123.103C171.513 122.803 170.79 122.653 169.914 122.653H166.972L166.995 121.453H171.159L171.413 121.88C172.167 121.957 172.824 122.192 173.386 122.584C173.955 122.968 174.393 123.457 174.701 124.049C175.016 124.641 175.174 125.291 175.174 125.998C175.174 127.014 174.947 127.875 174.493 128.582C174.047 129.282 173.42 129.817 172.613 130.186C171.813 130.547 170.879 130.728 169.81 130.728ZM177.332 113.932L182.419 123.08L187.552 113.932H189.191L183.134 124.395V130.728H181.715V124.395L175.647 113.932H177.332Z"/>
+    <path d="M298.808 121.672L301.507 119.642C301.999 119.281 302.403 118.892 302.718 118.477C303.041 118.054 303.203 117.558 303.203 116.989C303.203 116.443 303.007 115.954 302.615 115.524C302.222 115.093 301.657 114.878 300.919 114.878C300.381 114.878 299.927 114.997 299.558 115.235C299.188 115.466 298.912 115.781 298.727 116.181C298.542 116.574 298.45 117.004 298.45 117.473C298.45 117.843 298.523 118.227 298.669 118.627C298.823 119.019 299.039 119.431 299.315 119.861C299.6 120.284 299.942 120.73 300.342 121.199L308.51 130.728H306.848L299.892 122.641C299.323 121.98 298.823 121.369 298.393 120.807C297.97 120.246 297.643 119.7 297.412 119.169C297.181 118.639 297.066 118.089 297.066 117.52C297.066 116.727 297.224 116.047 297.539 115.478C297.854 114.909 298.3 114.47 298.877 114.163C299.454 113.847 300.134 113.69 300.919 113.69C301.673 113.69 302.315 113.843 302.845 114.151C303.384 114.451 303.795 114.851 304.08 115.351C304.364 115.843 304.507 116.389 304.507 116.989C304.507 117.489 304.395 117.954 304.172 118.385C303.957 118.815 303.676 119.208 303.33 119.561C302.992 119.907 302.634 120.227 302.257 120.519L299.188 122.884C298.527 123.414 298.035 123.903 297.712 124.349C297.397 124.795 297.189 125.191 297.089 125.537C296.989 125.883 296.939 126.183 296.939 126.437C296.939 127.029 297.077 127.579 297.354 128.086C297.631 128.594 298.054 129.002 298.623 129.309C299.192 129.617 299.908 129.771 300.769 129.771C301.492 129.771 302.192 129.617 302.868 129.309C303.545 128.994 304.149 128.548 304.68 127.971C305.218 127.387 305.641 126.694 305.949 125.895C306.264 125.087 306.422 124.191 306.422 123.207H307.69C307.69 123.937 307.617 124.622 307.471 125.26C307.333 125.898 307.125 126.487 306.848 127.025C306.571 127.563 306.229 128.06 305.822 128.513C305.76 128.59 305.718 128.652 305.695 128.698C305.679 128.744 305.641 128.798 305.579 128.859C304.964 129.505 304.241 130.017 303.411 130.394C302.58 130.77 301.699 130.959 300.769 130.959C299.7 130.959 298.773 130.77 297.989 130.394C297.212 130.017 296.612 129.49 296.189 128.813C295.774 128.129 295.566 127.337 295.566 126.437C295.566 125.768 295.708 125.16 295.993 124.614C296.278 124.068 296.666 123.557 297.158 123.08C297.65 122.603 298.2 122.134 298.808 121.672Z"/>
+    </g>
+  </symbol>
+</svg>
+
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gb" id="gatePat"></div>
+  <div class="gate-card" id="gateCard">
+    <svg><use href="#s-wordmark"/></svg>
+    <div class="gk">Acesso restrito</div>
+    <h2 id="gate-title">Design System</h2>
+    <p>Este material é de uso interno da Stack, PM3 e Alura. Digite a senha para continuar.</p>
+    <noscript><p style="color:#b3222f;font-weight:600">Ative o JavaScript do navegador para acessar este material.</p></noscript>
+    <form id="gateForm" autocomplete="off" onsubmit="return false">
+      <label for="gatePass">Senha</label>
+      <input id="gatePass" type="password" autocomplete="off" autofocus required>
+      <div class="gerr" id="gateErr" role="alert" aria-live="polite"></div>
+      <button class="btn btn-lime" type="submit">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<nav class="top">
+  <div class="brand"><svg style="color:var(--lime)"><use href="#s-wordmark"/></svg> <span>Design System</span></div>
+  <ul>
+    <li><a href="#essencia">Essência</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#cores">Cores</a></li>
+    <li><a href="#tipografia">Tipografia</a></li>
+    <li><a href="#grid">Grid</a></li>
+    <li><a href="#ia">Tokens</a></li>
+  </ul>
+  <a class="btn btn-pdf btn-sm" href="Design-System-Stack.pdf" download>Baixar PDF</a>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <div class="pat" id="heroPat"></div>
+  <div class="wrap">
+    <svg class="lockup lg two"><use href="#s-lockup"/></svg>
+    <div class="h-kicker">Design System · v1.0 · Outubro 2026</div>
+    <h1>Da conversa para a <span class="lm">construção.</span></h1>
+    <p>Fundamentos e componentes para criar qualquer peça da Stack — do anúncio ao slide, da página ao e-mail — com a mesma clareza do key visual. As regras de comunicação ficam no contexto para IA, na última seção.</p>
+    <div class="meta">
+      <div><b>Marca</b>Stack by PM3 &amp; Alura</div>
+      <div><b>Fontes</b>Brandbook v1.1 · Key Visual · stack.com.br · Pesquisa com a base (91 respostas) · Régua Stack v2.0</div>
+      <div><b>Uso</b>Interno &amp; parceiros</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ ESSÊNCIA ============================ -->
+<section class="section" id="essencia">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">01</span> Essência da marca</div>
+    <h2 class="title reveal">Para quem constrói, não só usa</h2>
+    <p class="lead reveal">A Stack é a escola de IA e automação criada pela PM3 e pela Alura para profissionais de Produto, Marketing, Ops e Tecnologia que querem sair do chat e passar a construir aplicações, automações, agentes e protótipos — sem código. Este documento transforma o brandbook, o key visual, o site e a pesquisa com a base em um sistema reutilizável de design e de comunicação.</p>
+
+    <div class="attr reveal">
+      <span>Builder</span><span>Sem código</span><span>Sem hype</span><span>Prática</span><span>Direta</span><span>Método validado</span><span>Carreira</span><span>Comunidade</span><span>PM3 &amp; Alura</span>
+    </div>
+
+    <h3 class="sub reveal">Princípios de design</h3>
+    <div class="grid g3 reveal">
+      <div class="card"><div class="idx">1</div><h3>Alto contraste</h3><p>Preto e branco fazem o trabalho pesado. Nada de meio-tom, gradiente ou transparência decorativa: a peça é legível a três metros.</p></div>
+      <div class="card"><div class="idx">2</div><h3>Uma cor de destaque</h3><p>O lima aparece onde há ação ou ênfase — botão, kicker, palavra-chave, padrão gráfico — e em mais nada. Quanto menos lima, mais ele vale.</p></div>
+      <div class="card"><div class="idx">3</div><h3>Uma família tipográfica</h3><p>Roboto, do Light ao Black. A hierarquia vem do peso e do tamanho, não de uma segunda fonte.</p></div>
+      <div class="card"><div class="idx">4</div><h3>Geometria reta</h3><p>Cantos retos, linhas de 1 px, blocos cheios. Sem sombra, sem raio, sem mockup 3D. A profundidade vem do contraste.</p></div>
+      <div class="card"><div class="idx">5</div><h3>Pixels em dissolução</h3><p>O grafismo nasce de um módulo quadrado que se desfaz: blocos densos em uma borda, raros na outra. É a textura da marca — e a única.</p></div>
+      <div class="card blk"><div class="idx" style="background:var(--lime);color:#000">+</div><h3>De builder para builder</h3><p>Tudo mostra o que foi construído: telas reais, projetos, pessoas no Builders Camp. A peça fala de igual para igual com quem constrói.</p></div>
+    </div>
+
+    <div class="quote-bar reveal">
+      <div><p>Você não precisa de código. Você precisa construir.</p><small>Brandbook Stack v1.1 · voz e tom</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LOGO ============================ -->
+<section class="section black" id="logo">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">02</span> Logotipo</div>
+    <h2 class="title reveal">A palavra é a marca</h2>
+    <p class="lead reveal">O logotipo Stack é um wordmark em caixa alta, geométrico, com o <b style="color:#fff">A</b> sem travessão e o <b style="color:#fff">K</b> aberto. Não existe símbolo separado. Ele aparece em três cores — lima, preto e branco — e em três arranjos: horizontal, empilhado e com a assinatura das marcas-mãe. Use sempre os SVGs desta pasta; nunca recrie, distorça ou recolorize.</p>
+
+    <div class="logo-grid reveal" style="margin-top:44px">
+      <div class="logo-tile lt-black" style="color:var(--lime)"><svg><use href="#s-wordmark"/></svg><small>Lima sobre preto — versão principal</small></div>
+      <div class="logo-tile lt-white"><svg><use href="#s-wordmark"/></svg><small>Preto sobre branco — documentos e fundos claros</small></div>
+      <div class="logo-tile lt-lime"><svg><use href="#s-wordmark"/></svg><small>Preto sobre lima — capas e blocos de destaque</small></div>
+      <div class="logo-tile lt-dark"><svg><use href="#s-wordmark"/></svg><small>Branco sobre dark — interface e vídeo</small></div>
+      <div class="logo-tile lt-grey"><svg><use href="#s-wordmark"/></svg><small>Preto sobre cinza — uso raro, só em fundo neutro</small></div>
+      <div class="logo-tile lt-black stk" style="color:var(--lime)"><svg><use href="#s-stacked"/></svg><small>Empilhado — avatar, favicon, selo, crachá</small></div>
+      <div class="logo-tile lt-white stk"><svg><use href="#s-stacked"/></svg><small>Empilhado preto — fundo claro</small></div>
+      <div class="logo-tile lt-black lk"><svg class="lg two"><use href="#s-lockup"/></svg><small>Com assinatura “by PM3 &amp; alura” — fundo escuro</small></div>
+      <div class="logo-tile lt-white lk"><svg><use href="#s-lockup"/></svg><small>Com assinatura — fundo claro, tudo em preto</small></div>
+    </div>
+
+    <h3 class="sub reveal">Respiro e tamanho mínimo <span class="chip-prop">proposta</span></h3>
+    <div class="clear-demo reveal">
+      <div class="cs-box">
+        <i class="xt">X</i><i class="xl">X</i><i class="xr">X</i><i class="xb">X</i>
+        <svg><use href="#s-wordmark"/></svg>
+      </div>
+      <p style="max-width:430px;margin:0">O espaço livre (<b style="color:#fff">X</b>) em todos os lados é igual à <b style="color:#fff">altura das letras</b> do wordmark. Nenhum texto, foto, borda de bloco ou padrão de pixels invade essa área.<br><br><b style="color:#fff">Tamanho mínimo:</b> wordmark com 90&nbsp;px de largura em tela (22&nbsp;mm em impresso); empilhado com 56&nbsp;px (14&nbsp;mm); versão com assinatura com 160&nbsp;px (40&nbsp;mm), porque a assinatura é pequena.</p>
+    </div>
+
+    <h3 class="sub reveal">Posição na peça</h3>
+    <div class="dd dd3 reveal">
+      <div><h4>Canto, pequeno</h4><p style="margin:0;font-size:14px">Superior esquerdo em páginas e slides (como no site); inferior esquerdo em anúncios e stories. Nunca compete com o título.</p></div>
+      <div><h4>Centralizado só em capa</h4><p style="margin:0;font-size:14px">Em capa de vídeo, abertura de evento ou thumbnail institucional o wordmark pode ser o único elemento, centralizado sobre preto ou sobre o key visual de cubos.</p></div>
+      <div><h4>Assinatura na primeira aparição</h4><p style="margin:0;font-size:14px">Em peças de alcance (anúncio, landing, e-mail, apresentação externa) a primeira aparição do logo leva a assinatura <b style="color:#fff">by PM3 &amp; alura</b>. Nas seguintes, o wordmark sozinho basta.</p></div>
+    </div>
+
+    <div class="dd reveal" style="margin-top:16px">
+      <div class="ok"><h4>Faça</h4><ul>
+        <li>Use os SVGs oficiais desta pasta (lima, preto, branco)</li>
+        <li>Lima só sobre preto ou dark; preto sobre branco, lima ou cinza; branco sobre preto ou dark</li>
+        <li>Mantenha o respiro mínimo e a posição de canto</li>
+        <li>Use a versão com assinatura quando PM3 e Alura precisam ser citadas</li>
+      </ul></div>
+      <div class="no"><h4>Evite</h4><ul>
+        <li>Lima sobre branco ou sobre foto clara (não há contraste)</li>
+        <li>Recolorir fora da paleta, aplicar gradiente, contorno, sombra ou brilho</li>
+        <li>Distorcer, inclinar, rotacionar ou escrever “Stack” em Roboto no lugar do wordmark</li>
+        <li>Reposicionar ou recriar a assinatura “by PM3 &amp; alura” à mão</li>
+      </ul></div>
+    </div>
+
+    <div class="wrong reveal">
+      <div style="background:#fff;color:#000"><svg style="transform:scaleX(1.45)"><use href="#s-wordmark"/></svg><span>Distorcido</span><b class="x">✕</b></div>
+      <div style="background:#fff;color:var(--lime)"><svg><use href="#s-wordmark"/></svg><span>Lima sobre branco</span><b class="x">✕</b></div>
+      <div style="background:#000;color:#6645B1"><svg><use href="#s-wordmark"/></svg><span style="color:#ff8a8a">Fora da paleta</span><b class="x" style="color:#ff8a8a">✕</b></div>
+      <div style="background:#fff;color:#000"><svg style="transform:rotate(-8deg);filter:drop-shadow(4px 6px 3px rgba(0,0,0,.4))"><use href="#s-wordmark"/></svg><span>Inclinado, com sombra</span><b class="x">✕</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CORES ============================ -->
+<section class="section" id="cores">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">03</span> Cores</div>
+    <h2 class="title reveal">Preto, lima e nada no meio</h2>
+    <p class="lead reveal">Cinco cores oficiais e três neutros de interface. O preto é a base, o branco é o respiro, o lima é o único destaque. Clique em qualquer cor para copiar o HEX.</p>
+
+    <h3 class="sub reveal">Cores principais</h3>
+    <div class="sw-grid reveal">
+      <div class="sw wide" role="button" tabindex="0" data-hex="#000000" style="background:#000"><span class="hint">copiar HEX</span><div><div class="nm">Preto</div><div class="role">Base · fundo primário de peças e capas, texto em fundo claro, âncora do logo</div></div><div class="codes"><b>HEX</b>#000000 &nbsp; <b>RGB</b>0 0 0<br><b>CMYK</b>100 100 100 100</div></div>
+      <div class="sw wide light" role="button" tabindex="0" data-hex="#E7FF00" style="background:#E7FF00"><span class="hint">copiar HEX</span><div><div class="nm">Lima</div><div class="role">Destaque · botão primário, kicker e ênfase em fundo escuro, padrão de pixels, marcador. Nunca texto sobre branco</div></div><div class="codes"><b>HEX</b>#E7FF00 &nbsp; <b>RGB</b>231 255 0<br><b>CMYK</b>20 0 100 0</div></div>
+      <div class="sw wide light bordered" role="button" tabindex="0" data-hex="#FFFFFF" style="background:#fff"><span class="hint">copiar HEX</span><div><div class="nm">Branco</div><div class="role">Respiro · documentos, slides claros, texto e logo em fundo escuro</div></div><div class="codes"><b>HEX</b>#FFFFFF &nbsp; <b>RGB</b>255 255 255<br><b>CMYK</b>0 0 0 0</div></div>
+      <div class="sw wide" role="button" tabindex="0" data-hex="#121212" style="background:#121212"><span class="hint">copiar HEX</span><div><div class="nm">Dark</div><div class="role">Fundo escuro de leitura · seções do site, interface, vídeo. Alternativa ao preto em áreas longas de texto</div></div><div class="codes"><b>HEX</b>#121212 &nbsp; <b>RGB</b>18 18 18</div></div>
+    </div>
+
+    <h3 class="sub reveal">Apoio e neutros de interface <span class="chip-prop">derivados de stack.com.br</span></h3>
+    <div class="sw-grid reveal">
+      <div class="sw" role="button" tabindex="0" data-hex="#898989" style="background:#898989;min-height:170px"><span class="hint">copiar HEX</span><div class="nm">Cinza</div><div class="codes"><b>HEX</b>#898989 · RGB 137 137 137<br><span style="opacity:.85;font-family:var(--font)">texto secundário, legendas, metadados. Oficial no brandbook</span></div></div>
+      <div class="sw" role="button" tabindex="0" data-hex="#1C1C1C" style="background:#1C1C1C;min-height:170px"><span class="hint">copiar HEX</span><div class="nm">Raised</div><div class="codes"><b>HEX</b>#1C1C1C<br><span style="opacity:.75;font-family:var(--font)">cards e campos sobre dark</span></div></div>
+      <div class="sw light bordered" role="button" tabindex="0" data-hex="#F0F0EA" style="background:#F0F0EA;min-height:170px"><span class="hint">copiar HEX</span><div class="nm">Off-white</div><div class="codes"><b>HEX</b>#F0F0EA<br><span style="opacity:.75;font-family:var(--font)">fundo claro alternativo, blocos de FAQ</span></div></div>
+      <div class="sw light bordered" role="button" tabindex="0" data-hex="rgba(255,255,255,.14)" style="background:#fff;min-height:170px;background-image:repeating-linear-gradient(0deg,transparent 0 23px,rgba(0,0,0,.12) 23px 24px)"><span class="hint">copiar CSS</span><div class="nm">Linhas</div><div class="codes"><b>ESCURO</b>rgba(255,255,255,.14)<br><b>CLARO</b>rgba(0,0,0,.12)<br><span style="opacity:.75;font-family:var(--font)">divisórias de 1 px, no lugar de sombra</span></div></div>
+    </div>
+
+    <h3 class="sub reveal">Proporção de uso</h3>
+    <div class="proportion reveal">
+      <div style="flex-grow:60;background:#000;color:#fff">Preto ou dark · ~60%</div>
+      <div style="flex-grow:28;background:#fff;color:#000">Branco · 25–30%</div>
+      <div style="flex-grow:8;background:var(--lime);color:#000;padding:10px 8px">Lima · ≤10%</div>
+      <div style="flex-grow:4;background:var(--grey);color:#000;padding:10px 6px;font-size:10px">Cinza</div>
+    </div>
+    <p style="margin-top:16px;font-size:14px" class="reveal">O lima é <b>destaque, não fundo</b>. Pode preencher um bloco inteiro só em três casos: botão e tag; faixa ou barra lateral fina; capa de curso ou thumbnail com o wordmark e um título curtos em preto. Nunca atrás de texto corrido. Em peças claras, inverta a proporção (branco ~60%, preto 25–30%) e mantenha o lima no mesmo teto.</p>
+  </div>
+</section>
+
+<!-- ============================ TIPOGRAFIA ============================ -->
+<section class="section off" id="tipografia">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">04</span> Tipografia</div>
+    <h2 class="title reveal">Uma família, seis pesos</h2>
+    <p class="lead reveal">Roboto do Light ao Black. A hierarquia vem do peso e do tamanho, nunca de uma segunda fonte. Roboto Mono entra apenas em códigos, metadados e números tabulares — como no site.</p>
+
+    <div class="fam reveal" style="margin-top:40px">
+      <div class="card">
+        <div class="label">Títulos e destaques</div>
+        <div class="big" style="font-weight:900">Roboto</div>
+        <div style="font-weight:800;font-size:20px;line-height:1.2;letter-spacing:-.02em">AaBbCcDdEeFfGgHhIiJjKk<br>LlMmNnOoPpQqRrSsTtUuVv<br>WwXxYyZz 0123456789</div>
+        <div class="weights"><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span><span style="font-weight:800">Extrabold</span><span style="font-weight:900">Black</span></div>
+        <div class="meta">Extrabold ou Black, caixa mista, tracking −2% a −3%, entrelinha 1,0–1,08. Caixa alta só em kicker, tag e CTA.</div>
+      </div>
+      <div class="card">
+        <div class="label">Parágrafos e interface</div>
+        <div class="big" style="font-weight:400">Roboto</div>
+        <div style="font-size:20px;line-height:1.25">AaBbCcDdEeFfGgHhIiJjKk<br>LlMmNnOoPpQqRrSsTtUuVv<br>WwXxYyZz 0123456789</div>
+        <div class="weights"><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span></div>
+        <div class="meta">Regular para corpo (16–18 px, entrelinha 1,5), Medium para destaques dentro do parágrafo. Nunca justificado. Parágrafos de até 4 linhas.</div>
+      </div>
+      <div class="card blk">
+        <div class="label" style="color:var(--lime)">Código, dados e metadados</div>
+        <div class="big" style="font-family:var(--mono);font-weight:500;color:#fff">Mono</div>
+        <div style="font-family:var(--mono);font-size:18px;line-height:1.35;color:#fff">9H · 11 MÓDULOS<br>+20.000 · 96% → 25%<br>--lime: #E7FF00</div>
+        <div class="weights" style="font-family:var(--mono);color:#fff"><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span></div>
+        <div class="meta" style="color:var(--grey)">Roboto Mono. Só para duração e módulos, números em tabelas, tokens e trechos de código. <b style="color:#fff">Nunca em título ou corpo.</b></div>
+      </div>
+    </div>
+
+    <h3 class="sub reveal">A assinatura: título + palavra em lima</h3>
+    <div class="type-demo reveal">
+      <div>
+        <div class="k">⚡ Para quem constrói</div>
+        <h3>Saia do operacional e <span class="lm">construa</span> o que faz diferença no seu segmento.</h3>
+        <p>Cursos práticos de Lovable, n8n, Claude Code e Cursor — sem código e com método validado por PM3 e Alura.</p>
+        <button class="btn btn-lime">Quero conhecer a Stack</button>
+      </div>
+      <div>
+        <ol class="anat">
+          <li><div><b>Kicker</b> — Roboto Bold, caixa alta, 12–13 px, tracking +12%. Lima em fundo escuro, preto em fundo claro. O raio ⚡ é o único emoji da marca e é opcional.</div></li>
+          <li><div><b>Título</b> — Roboto Black, caixa mista, tracking −3%. Branco em fundo escuro, preto em fundo claro.</div></li>
+          <li><div><b>Ênfase</b> — a palavra que carrega a promessa (o verbo de construção ou o ganho de carreira) em lima sobre escuro, ou com marcador lima sobre claro. <b>Uma por título.</b></div></li>
+          <li><div><b>Corpo</b> — Roboto Regular, 2–4 linhas, branco a 68% em fundo escuro.</div></li>
+          <li><div><b>CTA</b> — Roboto Bold caixa alta, botão lima de cantos retos.</div></li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 class="sub reveal">Escala tipográfica — web e documentos</h3>
+    <div class="card reveal" style="padding:10px 28px">
+      <div class="scale">
+        <div class="scale-row"><span class="tg">Display</span><span style="font-weight:900;font-size:56px;line-height:.96;letter-spacing:-.035em">Da conversa para a construção</span><span class="sp">Roboto 900 · 56–108px · LH .96 · −3,5%</span></div>
+        <div class="scale-row"><span class="tg">H1</span><span style="font-weight:900;font-size:42px;line-height:1;letter-spacing:-.03em">Construa seu portfólio Builder</span><span class="sp">Roboto 900 · 36–48px · LH 1 · −3%</span></div>
+        <div class="scale-row"><span class="tg">H2</span><span style="font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.025em">O que você quer ser capaz de construir?</span><span class="sp">Roboto 800 · 28–32px · LH 1,05 · −2,5%</span></div>
+        <div class="scale-row"><span class="tg">Body</span><span style="font-size:16px;line-height:1.5">Mentorias em grupo, atividades ao vivo e uma comunidade de builders para tirar dúvida enquanto você constrói.</span><span class="sp">Roboto 400 · 16px · LH 1,5</span></div>
+        <div class="scale-row"><span class="tg">Small</span><span style="font-size:14px;line-height:1.45;color:var(--ink-2)">Legendas, notas de fonte e textos de apoio.</span><span class="sp">Roboto 400 · 14px · LH 1,45</span></div>
+        <div class="scale-row"><span class="tg">Meta</span><span class="meta-mono" style="font-size:12px;color:#000">9H · 11 MÓDULOS · 2 CASES</span><span class="sp">Roboto Mono 500 · 12px · +6% · caixa alta</span></div>
+        <div class="scale-row"><span class="tg">Botão</span><span style="font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase">Começar curso →</span><span class="sp">Roboto 700 · 14px · +6% · caixa alta</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GRID & FORMA ============================ -->
+<section class="section" id="grid">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">05</span> Grid &amp; forma</div>
+    <h2 class="title reveal">Tudo nasce de um quadrado</h2>
+    <p class="lead reveal">O módulo quadrado gera o padrão de pixels, os cantos retos e as divisões da peça. Sem raio, sem sombra, sem gradiente: a profundidade vem do contraste entre blocos cheios e do padrão em dissolução. O gerador abaixo cria o padrão com as regras desta página.</p>
+
+    <div class="fluid-demo reveal" style="margin-top:44px">
+      <div>
+        <div class="pat-stage" id="patStage"><div class="lbl">O que você já construiu com IA?</div></div>
+        <div class="pat-ctl">
+          <button class="btn btn-outline btn-sm" id="patNew">Gerar outro</button>
+          <button class="btn btn-outline btn-sm" id="patBg">Fundo claro / escuro</button>
+          <button class="btn btn-lime btn-sm" id="patDl">Baixar SVG</button>
+        </div>
+      </div>
+      <div class="rules">
+        <div class="rule"><div class="n">1</div><div><h4>Módulo</h4><p>A célula do padrão mede 1/32 da largura da peça; o vão entre células é 1/4 da célula. Tudo o mais se alinha a múltiplos de 8 px.</p></div></div>
+        <div class="rule"><div class="n">2</div><div><h4>Dissolução direcional</h4><p>A densidade cresce em direção a uma borda — base ou lateral — e cai até quase zero na borda oposta. Nunca uniforme, nunca centrada.</p></div></div>
+        <div class="rule"><div class="n">3</div><div><h4>Quarto de círculo</h4><p>Até 15% das células têm um canto arredondado com raio igual à célula. É o único arredondamento permitido na marca.</p></div></div>
+        <div class="rule"><div class="n">4</div><div><h4>Barra</h4><p>Duas ou três células vizinhas podem se fundir em uma barra horizontal. No máximo uma barra a cada dez células.</p></div></div>
+        <div class="rule"><div class="n">5</div><div><h4>Cantos retos</h4><p>Blocos, botões, cards e fotos com raio zero em peças gráficas. Em interface, até 4 px em campos de formulário.</p></div></div>
+        <div class="rule"><div class="n">6</div><div><h4>Área de texto limpa</h4><p>O padrão nunca fica atrás de texto corrido. Um título pode entrar na zona rala do padrão (densidade abaixo de 30%), nunca na zona densa.</p></div></div>
+        <div class="rule" style="border-color:#000;box-shadow:inset 0 0 0 1px #000"><div class="n">7</div><div><h4>Um padrão, uma borda</h4><p>Um único padrão por peça, ancorado em uma borda, em lima sobre preto ou lima sobre branco. Divisões da peça em blocos cheios de 1/3 + 2/3; o bloco lima nunca passa de 1/4 da área.</p></div></div>
+      </div>
+    </div>
+
+    <h3 class="sub reveal">Tokens de forma</h3>
+    <div class="tok-grid reveal">
+      <div class="tok">
+        <h4>Espaçamento · base 4 px</h4>
+        <div class="sp-row"><span class="v">--sp-1 · 4</span><span class="bar" style="width:4px"></span></div>
+        <div class="sp-row"><span class="v">--sp-2 · 8</span><span class="bar" style="width:8px"></span></div>
+        <div class="sp-row"><span class="v">--sp-3 · 12</span><span class="bar" style="width:12px"></span></div>
+        <div class="sp-row"><span class="v">--sp-4 · 16</span><span class="bar" style="width:16px"></span></div>
+        <div class="sp-row"><span class="v">--sp-6 · 24</span><span class="bar" style="width:24px"></span></div>
+        <div class="sp-row"><span class="v">--sp-8 · 32</span><span class="bar" style="width:32px"></span></div>
+        <div class="sp-row"><span class="v">--sp-12 · 48</span><span class="bar" style="width:48px"></span></div>
+        <div class="sp-row"><span class="v">--sp-16 · 64</span><span class="bar" style="width:64px"></span></div>
+        <div class="sp-row"><span class="v">--sp-24 · 96</span><span class="bar" style="width:96px"></span></div>
+        <div class="sp-row"><span class="v">--sp-32 · 128</span><span class="bar" style="width:128px"></span></div>
+      </div>
+      <div style="display:grid;gap:16px">
+        <div class="tok">
+          <h4>Raios</h4>
+          <div class="rd-row">
+            <div class="rd"><div style="border-radius:0"></div>peça · 0</div>
+            <div class="rd"><div style="border-radius:0"></div>botão · 0</div>
+            <div class="rd"><div style="border-radius:0"></div>card · 0</div>
+            <div class="rd"><div style="border-radius:4px"></div>campo · 4</div>
+            <div class="rd"><div style="border-radius:50%;width:64px"></div>avatar · 50%</div>
+          </div>
+        </div>
+        <div class="tok">
+          <h4>Elevação e separação</h4>
+          <div class="sh-row">
+            <div class="sh">sem sombra</div>
+            <div class="sh" style="border-color:#000">linha 1 px</div>
+            <div class="sh" style="background:#1C1C1C;color:#fff;border-color:#1C1C1C">fundo raised sobre dark</div>
+          </div>
+          <p style="font-size:13px;margin:14px 0 0">Nenhuma sombra, em nenhum formato. Separe superfícies com uma linha de 1 px ou com a troca de fundo (#121212 → #1C1C1C).</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub reveal">Formatos</h3>
+    <div class="grid g4 reveal">
+      <div class="card"><div class="label" style="font-size:11px;font-weight:700;letter-spacing:.14em">FEED</div><div class="T" style="font-size:30px;margin:8px 0">1080 × 1080</div><p>Anúncio de curso, dado da pesquisa, chamada de evento</p></div>
+      <div class="card"><div class="label" style="font-size:11px;font-weight:700;letter-spacing:.14em">STORIES / REELS</div><div class="T" style="font-size:30px;margin:8px 0">1080 × 1920</div><p>Carrossel, capa de vídeo curto, convite de Pocket</p></div>
+      <div class="card"><div class="label" style="font-size:11px;font-weight:700;letter-spacing:.14em">PAISAGEM 16:9</div><div class="T" style="font-size:30px;margin:8px 0">1920 × 1080</div><p>Slides, thumbnail de aula, capa de curso, telão de evento</p></div>
+      <div class="card"><div class="label" style="font-size:11px;font-weight:700;letter-spacing:.14em">LINK / OG</div><div class="T" style="font-size:30px;margin:8px 0">1200 × 630</div><p>Prévia de link, banner de e-mail, capa de blog</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TOKENS & IA ============================ -->
+<section class="section black" id="ia">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="num">06</span> Tokens &amp; IA</div>
+    <h2 class="title reveal">Pronto para código</h2>
+    <p class="lead reveal">Tokens CSS para sites, apresentações e ferramentas — com os mesmos nomes já usados em stack.com.br — e um contexto em Markdown para alimentar outras IAs na criação de peças e textos consistentes com a marca.</p>
+
+    <div class="code-card reveal">
+      <div class="bar"><span>tokens.css</span><button class="btn btn-white btn-sm" id="copyCss">Copiar CSS</button></div>
+<pre id="cssTokens"><span class="c">/* Stack — Design tokens v1.0 · nomes compatíveis com stack.com.br */</span>
+:root {
+  <span class="c">/* Marca — oficiais (Brandbook v1.1) */</span>
+  <span class="k">--black</span>:      <span class="v">#000000</span>;   <span class="c">/* base, texto em fundo claro */</span>
+  <span class="k">--lime</span>:       <span class="v">#E7FF00</span>;   <span class="c">/* destaque: CTA, kicker, ênfase, padrão · ≤10% da área · nunca texto sobre branco */</span>
+  <span class="k">--lime-ink</span>:   <span class="v">#000000</span>;   <span class="c">/* único texto permitido sobre lima */</span>
+  <span class="k">--white</span>:      <span class="v">#FFFFFF</span>;
+  <span class="k">--dark</span>:       <span class="v">#121212</span>;   <span class="c">/* fundo escuro de leitura */</span>
+  <span class="k">--grey</span>:       <span class="v">#898989</span>;   <span class="c">/* texto secundário · sobre branco só texto grande */</span>
+
+  <span class="c">/* Interface — derivadas */</span>
+  <span class="k">--dark-raised</span>: <span class="v">#1C1C1C</span>;
+  <span class="k">--off-white</span>:   <span class="v">#F0F0EA</span>;
+  <span class="k">--dark-line</span>:   rgba(255,255,255,.14);
+  <span class="k">--light-line</span>:  rgba(0,0,0,.12);
+
+  <span class="c">/* Tipografia — uma família */</span>
+  <span class="k">--font</span>:      "Roboto", system-ui, sans-serif;
+  <span class="k">--font-mono</span>: "Roboto Mono", ui-monospace, monospace;  <span class="c">/* só meta, dados, código */</span>
+
+  <span class="c">/* Forma — sem raio, sem sombra */</span>
+  <span class="k">--r-0</span>: <span class="v">0</span>;  <span class="k">--r-input</span>: <span class="v">4px</span>;
+  <span class="k">--shadow</span>: none;
+
+  <span class="c">/* Espaçamento — base 4px */</span>
+  <span class="k">--sp-1</span>: 4px;  <span class="k">--sp-2</span>: 8px;   <span class="k">--sp-3</span>: 12px; <span class="k">--sp-4</span>: 16px;
+  <span class="k">--sp-6</span>: 24px; <span class="k">--sp-8</span>: 32px;  <span class="k">--sp-12</span>: 48px; <span class="k">--sp-16</span>: 64px;
+  <span class="k">--container</span>: 1200px;
+}
+
+<span class="c">/* Botão primário */</span>
+.btn-lime { background:var(--lime); color:var(--lime-ink); font:700 14px/1 var(--font); letter-spacing:.06em; text-transform:uppercase; padding:14px 26px; border:1.5px solid var(--lime); border-radius:0; }
+.btn-lime:hover { background:var(--black); color:var(--lime); border-color:var(--black); }
+
+<span class="c">/* Marcador de ênfase em fundo claro */</span>
+.mk { background:linear-gradient(transparent 58%, var(--lime) 58%); }
+
+<span class="c">/* Padrão de pixels em dissolução: ver gerador na seção Grid &amp; forma (função genDissolve) */</span></pre>
+    </div>
+    <p style="margin-top:14px;font-size:13.5px" class="reveal">Fontes: <code>&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800;900&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"&gt;</code></p>
+
+    <div class="llm-block">
+    <h3 class="sub reveal">Contexto para LLM</h3>
+    <p class="reveal" style="max-width:66ch">Gera um bloco em Markdown com a identidade e as regras de comunicação — pronto para colar como contexto em outra IA, junto com a Régua Stack.</p>
+    <div class="actions reveal" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+      <button class="btn btn-lime" id="genMd">Gerar .md para LLM</button>
+      <button class="btn btn-white" id="copyMd" style="display:none">Copiar texto</button>
+      <button class="btn btn-white" id="dlMd" style="display:none">Baixar .md</button>
+    </div>
+    <textarea id="mdOut" readonly></textarea>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="lg two" style="height:44px"><use href="#s-lockup"/></svg>
+  <div>Design System · Stack by PM3 &amp; Alura · Versão 1.0 · <b>Outubro 2026</b> · Baseado no Brandbook v1.1, no key visual, em stack.com.br, na pesquisa com a base e na Régua Stack v2.0</div>
+</footer>
+
+<div class="toast" id="toast">Copiado!</div>
+
+<script type="text/markdown" id="ai-context"># Stack by PM3 & Alura — Design System / Brand Context (para uso por IA)
+
+> Referência estruturada da identidade e das regras de comunicação da Stack para gerar peças, páginas, e-mails, roteiros e apresentações. Ao desenhar o logo, use sempre os SVGs oficiais — não recrie de memória. Para avaliar um material pronto, use a Régua Stack v2.0 (7 critérios, 35 perguntas).
+
+## 1. Marca
+- Nome: Stack · Assinatura: "Stack by PM3 & Alura" · Site: stack.com.br
+- Definição em uma frase (obrigatória em peças de alcance): "A Stack é a escola de IA e automação da PM3 e da Alura para quem quer construir aplicações, automações e agentes — sem código."
+- O que é: cursos práticos (Lovable, n8n, Claude Code, Cursor AI, Replit/AI Growth Builder, Sistemas de Agentes de IA, Pensamento Builder), método Build to Learn, mentorias em grupo, atividades ao vivo, comunidade, evento anual Builders Camp e edições locais Pocket.
+- O que NÃO é: não está incluída na assinatura da PM3 nem da Alura; é uma jornada à parte. PM3 e Alura fazem parte do Grupo Alun (com FIAP e StartSe).
+- Público: profissionais de Produto, Marketing, Ops e Tecnologia que já usam IA em chat e querem construir. 72% da base é early/late majority: quer método validado e caminho guiado, não experimentação.
+- Atributos: builder · sem código · sem hype · prática · direta · método validado · carreira · comunidade
+- Taglines e frases do site: "Da conversa para a construção" · "O que você já construiu com IA?" · "Construa seu portfólio Builder e alavanque sua carreira com IA" · "Saia do operacional" · "Você não precisa de código. Você precisa construir." · "Escolha uma habilidade. Aprenda a ferramenta. Construa na prática."
+
+## 2. Logo
+- Wordmark "STACK" em caixa alta, geométrico (A sem travessão, K aberto). Não há símbolo separado. Arranjos: horizontal, empilhado (STA/CK), com assinatura "by PM3 & alura".
+- Arquivos (SVG): assets/logo/stack-wordmark-{lima|preto|branco}.svg · stack-empilhado-{lima|preto|branco}.svg · stack-by-pm3-alura-{escuro|claro|branco}.svg
+- Cores: lima (#E7FF00) só sobre preto/dark; preto sobre branco, lima ou cinza; branco sobre preto/dark. Nunca lima sobre branco.
+- Posição: canto superior esquerdo (páginas, slides) ou inferior esquerdo (anúncios, stories). Centralizado só em capa, sozinho. Versão com assinatura na primeira aparição em peças de alcance.
+- Respiro mínimo: altura das letras em todos os lados. Tamanho mínimo: wordmark 90 px / 22 mm; empilhado 56 px / 14 mm; com assinatura 160 px / 40 mm.
+- Nunca: distorcer, inclinar, recolorir, gradiente, contorno, sombra, escrever "Stack" em Roboto no lugar do wordmark.
+
+## 3. Cores
+| Nome | Papel | HEX | RGB | CMYK |
+|---|---|---|---|---|
+| Preto | Base: fundo de peças, texto em fundo claro | #000000 | 0 0 0 | 100 100 100 100 |
+| Lima | Destaque: CTA, kicker, ênfase, padrão de pixels; nunca texto sobre branco | #E7FF00 | 231 255 0 | 20 0 100 0 |
+| Branco | Respiro, documentos, texto em fundo escuro | #FFFFFF | 255 255 255 | 0 0 0 0 |
+| Dark | Fundo escuro de leitura (site, interface, vídeo) | #121212 | 18 18 18 | — |
+| Cinza | Texto secundário, metadados; sobre branco só texto grande | #898989 | 137 137 137 | 50 35 35 15 |
+- Interface (derivadas): Raised #1C1C1C · Off-white #F0F0EA · linhas rgba(255,255,255,.14) no escuro e rgba(0,0,0,.12) no claro
+- Proporção: preto/dark ~60% · branco 25–30% · lima ≤10% · cinza detalhe. Em peças claras, inverter preto e branco.
+- Lima como fundo só em: botão/tag, barra fina, capa de curso ou thumbnail com wordmark e título curtos em preto. Nunca atrás de texto corrido.
+- Contraste: preto sobre lima e lima sobre preto passam AAA; cinza sobre preto AA; cinza sobre branco só texto grande; lima sobre branco reprovado.
+
+## 4. Tipografia
+- Uma família: Roboto. Títulos em Black/Extrabold (800–900), caixa mista, tracking −2% a −3,5%, entrelinha 0,96–1,08. Corpo em Regular 400, 16–18 px, entrelinha 1,5, nunca justificado, até 4 linhas.
+- Caixa alta só em kicker, tag e CTA (Bold 700, tracking +6% a +12%).
+- Roboto Mono 400/500 só para duração e módulos ("9H · 11 MÓDULOS"), números em tabelas, fontes de dados, tokens e código. Nunca em título ou corpo.
+- Nenhuma serifa, nenhum itálico decorativo.
+- Ênfase: UMA palavra por título — a que carrega a promessa — em lima sobre fundo escuro, ou com marcador lima (fundo) sobre fundo claro.
+- Hierarquia da peça: kicker (⚡ opcional + caixa alta, lima/preto) → título (Black, caixa mista, uma palavra em lima) → corpo (2–4 linhas) → CTA (botão lima, caixa alta) → meta em mono (fonte do dado, duração).
+- Escala web: Display 56–108 · H1 36–48 · H2 28–32 · H3 20–22 · Body 16–18 · Small 14 · Meta mono 12 · Botão 14 caixa alta
+- Escala peças 1080 px: título 64–96 · corpo 30–38 · kicker/CTA 26–32 · meta mono 22–26
+
+## 5. Grid e forma
+- Módulo quadrado. Cantos retos em tudo (raio 0); em interface, até 4 px em campos. Avatar circular é a única exceção.
+- Sem sombra em nenhum formato; separação por linha de 1 px ou troca de fundo (#121212 → #1C1C1C). Sem gradiente.
+- Divisão da peça em blocos cheios (preto, branco, lima) de 1/3 + 2/3; o bloco lima nunca passa de 1/4 da área.
+- Padrão de pixels em dissolução: célula = 1/32 da largura da peça, vão = 1/4 da célula; densidade cresce em direção a uma borda e cai até quase zero na oposta; até 15% das células com um quarto de círculo (raio = célula); barras de 2–3 células no máximo 1 a cada 10; lima sobre preto ou lima sobre branco; UM padrão por peça, ancorado em uma borda; nunca atrás de texto corrido.
+- Espaçamento base 4 px (4, 8, 12, 16, 24, 32, 48, 64, 96, 128). Container 1200 px.
+- Movimento: 150–200 ms, hover inverte cores, sem elevação.
+- Formatos: Feed 1080×1080 · Stories 1080×1920 · 16:9 1920×1080 (slides, thumbnail, capa de curso, telão) · OG 1200×630
+
+## 6. Grafismo e imagem
+- Key visual de cubos pretos 3D com o wordmark lima centralizado: abertura de vídeo, capa institucional, telão. Sozinho, sem outro texto.
+- Padrão de dissolução sobre preto (capas, thumbnails, base de peça) e sobre branco (documentos, ementas, slides claros).
+- Telas reais de n8n, Lovable, Claude Code e Cursor como imagem: recorte reto, moldura 1 px, sem sombra, sem mockup 3D.
+- Fotografia (proposta): builders em ação no Builders Camp e nos Pockets, mentorias, pessoas mostrando o próprio projeto. Sem stock corporativo. P&B de alto contraste ou cor sobre fundo escuro; lima nunca como filtro. Foto ocupa um bloco do grid, texto fica em outro.
+
+## 7. Componentes
+- Botão primário: fundo #E7FF00, texto preto, Roboto Bold 14 px caixa alta +6%, padding 14×26, raio 0; hover inverte (preto com texto lima). Um por tela/peça. Secundário: outline 1,5 px na cor do texto. Terciário: link com seta "→" em caixa mista.
+- Kicker: Roboto Bold caixa alta 12–13 px, lima em escuro / preto em claro, ⚡ opcional (único emoji da marca).
+- Tags: lima só para estado (Disponível, Novo); linha para atributo (Sem código, Apps web). Metadados em mono.
+- Card de curso: meta mono → título "Ferramenta: resultado" → uma linha → tags → CTA ghost; borda superior 4 px, lima no hover. Versão escura só para o destaque.
+- Estatística: número em Black 56 px (lima em escuro), fonte do dado em mono logo abaixo. Sem fonte, sem número.
+- Campos: raio 4 px, borda 1,5 px, foco com anel lima 3 px; erro com texto.
+- FAQ: a primeira pergunta é sempre "A Stack é da PM3 ou da Alura?".
+- Selo: versão com assinatura dentro de bloco preto, fecha e-mails e slides finais.
+
+## 8. Comunicação — voz
+- Pilares (Brandbook): Direta (frases curtas, verbos de ação) · Sem hype (toda afirmação com dado, case ou prática, e o dado com fonte) · De builder para builder (de igual para igual; reconhece o esforço, não infantiliza, não vende atalho).
+- Segunda pessoa ("você"), imperativo no CTA, ferramenta sempre com o que ela faz.
+- Usamos: builder, construir, portfólio Builder, sem código, método validado, Build to Learn, sair do operacional, automação, agente, protótipo, aplicação no ar, na prática, de verdade, comunidade, Builders Camp, Pocket, mentoria em grupo, case real, by PM3 & Alura.
+- Evitamos: revolução, segredo, definitivo, "mudar sua vida", "em 7 dias", hype (exceto "sem hype"), pioneiro / explore / teste como apelo principal, "no code" sem explicação, "acesso a tudo", siglas (LLM, RAG, MCP) sem explicação, "curso de n8n" sem resultado, "novidade da PM3", emojis além do ⚡.
+
+## 9. Comunicação — regras da pesquisa (Régua Stack v2.0)
+1. Clareza de marca (peso 20%): definir a Stack em uma frase; dizer por que é uma jornada à parte; dizer explicitamente que NÃO está incluída na assinatura PM3/Alura; nomear quem está por trás (by PM3 & Alura; Grupo Alun); separar o que está e o que não está incluído — nunca "acesso a tudo". Dado: NPS +48 para quem lembra de evento Stack vs −5 para quem não lembra; tema nº 1 dos textos abertos.
+2. Carreira à frente de ferramenta (20%): a promessa principal é de carreira (sair do operacional, virar referência, mostrar resultado); a ferramenta é meio; nomear o entregável (portfólio, projeto publicado, aplicação no ar); dado de carreira só com fonte. Ordem: Carreira → Construção → Ferramenta. Nome de curso: "Ferramenta: resultado".
+3. Linguagem para a maioria (15%): "sem código" por extenso; método validado e por quem; ponto de entrada por nível; cada ferramenta/sigla com uma frase sobre para que serve; convite a seguir um caminho, não a experimentar.
+4. Do uso à construção (15%): partir de quem já usa IA em chat (96%); contrastar usar × construir; citar a lacuna (só 25% chegam ao n8n); nomear o que se constrói; ligar a construção a sair do operacional.
+5. Suporte e acompanhamento (10%): dizer que há suporte, como funciona (mentoria em grupo, ao vivo, comunidade), quem responde e com que frequência, o que acontece nos primeiros dias, e que cobre o projeto da pessoa quando trava.
+6. Prova e confiança (10%): mostrar quem está por trás; base com número e o que ele mede; cases com nome e cargo; comunidade ao vivo (Builders Camp, Pocket) com foto, data ou número; nenhuma promessa sem lastro.
+7. Barreiras e caminho até a ação (10%): parcelamento/garantia; carga horária e prazo de acesso; o que a pessoa ganha que não teria sozinha; porta de entrada de baixo risco; um único próximo passo, fácil, com o que acontece depois.
+- Nota mínima para publicar: 6,0 de 10 (média ponderada). Material que falha em 1, 2 ou 3 volta para reescrita.
+
+## 10. Números aprovados (sempre com a fonte na peça)
+- +20.000 usuários inscritos (stack.com.br, out 2026) · +2.500 builders na comunidade dos cursos (stack.com.br) · +28% de salário para quem domina IA (stack.com.br; citar a origem do estudo) · 96% conversam com IA e só 25% chegam ao n8n (Pesquisa Stack, n=91, jun–set 2026) · NPS +48 vs −5 (lembra × não lembra de evento; n=29/38) · nota média 8,8 entre alunos (n=16) · garantia de 7 dias e 12 meses de acesso nos cursos individuais (conferir no checkout).
+- n pequeno é direção, não medida: "entre os alunos que responderam", nunca "os alunos da Stack".
+
+## 11. Fórmulas por formato
+- Anúncio: pergunta ou promessa de carreira → o que a pessoa constrói → ferramenta + "sem código" → CTA único. Logo com assinatura.
+- E-mail: assunto com o ganho → primeira linha define a Stack → prova → suporte → um CTA. Para assinantes PM3/Alura, "a Stack não está incluída na sua assinatura" antes da oferta.
+- Página de curso: Ferramenta: resultado → para quem é / não é → o que vai construir → instrutores → suporte → planos com garantia e parcelamento → FAQ (primeira pergunta: relação com PM3 e Alura).
+- Post: uma ideia por post (dado, tela, bastidor) → uma frase → CTA leve. Tela real ou foto de evento.
+- Roteiro: definição da Stack nos primeiros 30 s → problema → construção ao vivo → oferta com suporte e garantia.
+- Peça PM3 que cita a Stack: "a Stack, escola de IA da PM3 e da Alura, é um produto à parte" → o que entrega → CTA para stack.com.br. Nunca "inclusa", "novo módulo", "novidade da PM3".
+- CTAs padrão: "Quero conhecer a Stack" · "Conhecer o curso →" · "Começar curso →" · "Conferir ementa" · "Ver todos os cursos" · "Falar no WhatsApp" · "Entrar na lista de espera".
+
+## 12. Checklist
+Definição da Stack em uma frase · "by PM3 & Alura" e "sem código" na primeira dobra · "não está incluída na assinatura" quando o público pode assinar · carreira na frente, ferramenta como meio · entregável nomeado · usar × construir com o dado · suporte por extenso · todo número com fonte · um CTA · logo em canto com respiro · lima ≤10% e nunca sobre branco · uma palavra em lima por título · um padrão de pixels por peça, fora do texto · cantos retos, sem sombra · Roboto apenas (mono só em meta).
+
+## 13. Fontes
+Brandbook Stack v1.1 (Stack Keyvisual/brandbook-stack.html) · Key visual (KV.pdf, Frames) · stack.com.br e builderscamp.com.br · Pesquisa Stack by PM3 e Alura, 91 respostas, jun–set 2026 (Pesquisa Quali/pesquisa-stack-relatorio-completo.md) · Régua Stack v2.0 (Pesquisa Quali/regua-stack-metodologia.html) · Raio-X da Home · Design-System-Stack.html
+</script>
+
+<script>
+  // login (verificação por hash SHA-256; mesma senha do guia PM3 — a senha em si não fica no arquivo)
+  (function(){
+    const HASH='7c4add9bc6c8d7e8e1e1fca73715fa43ffdc18427d316ae37cfa4616c65c9db3';
+    function sha256(str){
+      const u=unescape(encodeURIComponent(str)),K=[],H=[];let p=2,n=0;
+      const isP=x=>{for(let i=2;i*i<=x;i++)if(x%i===0)return false;return true};
+      while(n<64){if(isP(p)){if(n<8)H[n]=(Math.pow(p,.5)%1*4294967296)|0;K[n]=(Math.pow(p,1/3)%1*4294967296)|0;n++}p++}
+      const b=[];for(let i=0;i<u.length;i++)b.push(u.charCodeAt(i));
+      const l=b.length*8;b.push(0x80);while(b.length%64!==56)b.push(0);
+      for(let i=7;i>=0;i--)b.push(i>=4?0:(l>>>(i*8))&255);
+      const r=(x,k)=>(x>>>k)|(x<<(32-k));let h=H.slice();
+      for(let o=0;o<b.length;o+=64){
+        const w=[];for(let i=0;i<16;i++)w[i]=(b[o+i*4]<<24)|(b[o+i*4+1]<<16)|(b[o+i*4+2]<<8)|b[o+i*4+3];
+        for(let i=16;i<64;i++){const s0=r(w[i-15],7)^r(w[i-15],18)^(w[i-15]>>>3),s1=r(w[i-2],17)^r(w[i-2],19)^(w[i-2]>>>10);w[i]=(w[i-16]+s0+w[i-7]+s1)|0}
+        let [a,bb,c,d,e,f,g,hh]=h;
+        for(let i=0;i<64;i++){const S1=r(e,6)^r(e,11)^r(e,25),ch=(e&f)^(~e&g),t1=(hh+S1+ch+K[i]+w[i])|0,S0=r(a,2)^r(a,13)^r(a,22),mj=(a&bb)^(a&c)^(bb&c),t2=(S0+mj)|0;hh=g;g=f;f=e;e=(d+t1)|0;d=c;c=bb;bb=a;a=(t1+t2)|0}
+        h=[h[0]+a,h[1]+bb,h[2]+c,h[3]+d,h[4]+e,h[5]+f,h[6]+g,h[7]+hh].map(x=>x|0);
+      }
+      return h.map(x=>(x>>>0).toString(16).padStart(8,'0')).join('');
+    }
+    const form=document.getElementById('gateForm'),inp=document.getElementById('gatePass'),err=document.getElementById('gateErr'),card=document.getElementById('gateCard');
+    if(!document.documentElement.classList.contains('unlocked')&&inp)setTimeout(()=>inp.focus(),50);
+    form&&form.addEventListener('submit',ev=>{
+      ev.preventDefault();
+      if(sha256(inp.value)===HASH){
+        try{localStorage.setItem('stack_ds_ok','1')}catch(e){}
+        document.documentElement.classList.add('unlocked');err.textContent='';inp.value='';
+      }else{
+        err.textContent='Senha incorreta. Tente novamente.';inp.value='';inp.focus();
+        card.classList.remove('shake');void card.offsetWidth;card.classList.add('shake');
+      }
+    });
+  })();
+
+  // ---------- gerador do padrão de pixels em dissolução ----------
+  // Regras (seção Grid & forma): célula = 1/32 da largura; vão = 1/4 da célula; densidade cresce em direção à base;
+  // até 15% das células com quarto de círculo (raio = célula); barras de 2–3 células, no máx. 1 a cada 10.
+  function genDissolve(o){
+    o=Object.assign({cols:32,rows:18,color:'#E7FF00',seed:1,gap:.25,maxDensity:.92,curve:2.2},o||{});
+    let s=o.seed>>>0||1;const rnd=()=>{s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return (s>>>0)/4294967296};
+    const cell=100,gap=cell*o.gap,pitch=cell+gap,W=o.cols*pitch-gap,H=o.rows*pitch-gap;
+    const parts=[];let bars=0,quads=0,filled=0;
+    for(let r=0;r<o.rows;r++){
+      const t=o.rows>1?r/(o.rows-1):1;const p=Math.pow(t,o.curve)*o.maxDensity+0.015;
+      let c=0;
+      while(c<o.cols){
+        const x=c*pitch,y=r*pitch;
+        if(rnd()>=p){c++;continue}
+        filled++;
+        // barra: apenas em zona densa, limitada a 1 a cada 10 células preenchidas
+        if(p>.5&&bars*10<filled&&rnd()<.12&&c<o.cols-2){
+          const n=rnd()<.5?2:3;const w=n*pitch-gap;
+          parts.push('<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+cell+'"/>');bars++;c+=n;continue;
+        }
+        // quarto de círculo: até 15% das células
+        if(quads<filled*.15&&rnd()<.16){
+          const k=Math.floor(rnd()*4);const R=cell;let d;
+          if(k===0)d='M'+x+' '+(y+R)+' A'+R+' '+R+' 0 0 1 '+(x+R)+' '+y+' V'+(y+cell)+' H'+x+' Z';
+          else if(k===1)d='M'+x+' '+y+' H'+(x+R)+' A'+R+' '+R+' 0 0 1 '+(x+cell)+' '+(y+R)+' V'+(y+cell)+' H'+x+' Z';
+          else if(k===2)d='M'+x+' '+y+' H'+(x+cell)+' V'+(y+cell-R)+' A'+R+' '+R+' 0 0 1 '+(x+cell-R)+' '+(y+cell)+' H'+x+' Z';
+          else d='M'+x+' '+y+' H'+(x+cell)+' V'+(y+cell)+' H'+(x+R)+' A'+R+' '+R+' 0 0 1 '+x+' '+(y+cell-R)+' Z';
+          parts.push('<path d="'+d+'"/>');quads++;c++;continue;
+        }
+        parts.push('<rect x="'+x+'" y="'+y+'" width="'+cell+'" height="'+cell+'"/>');c++;
+      }
+    }
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMax meet"><g fill="'+o.color+'">'+parts.join('')+'</g></svg>';
+  }
+  let patSeed=7,patLight=false;
+  function drawStage(){const st=document.getElementById('patStage');if(!st)return;st.classList.toggle('light',patLight);const old=st.querySelector('svg');if(old)old.remove();st.insertAdjacentHTML('beforeend',genDissolve({cols:26,rows:30,seed:patSeed,curve:2.6}))}
+  drawStage();
+  const pn=document.getElementById('patNew'),pb=document.getElementById('patBg'),pd=document.getElementById('patDl');
+  pn&&pn.addEventListener('click',()=>{patSeed=(patSeed*7919+13)%100000;drawStage()});
+  pb&&pb.addEventListener('click',()=>{patLight=!patLight;drawStage()});
+  pd&&pd.addEventListener('click',()=>{const b=new Blob([genDissolve({cols:26,rows:30,seed:patSeed,curve:2.6})],{type:'image/svg+xml'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='stack-dissolve-'+patSeed+'.svg';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u)});
+  const hp=document.getElementById('heroPat');if(hp)hp.innerHTML=genDissolve({cols:56,rows:11,seed:21,maxDensity:.9,curve:2.4});
+  const gp=document.getElementById('gatePat');if(gp)gp.innerHTML=genDissolve({cols:48,rows:10,seed:5,maxDensity:.85});
+  const tg=document.getElementById('texGen');if(tg)tg.insertAdjacentHTML('afterbegin',genDissolve({cols:16,rows:14,seed:33}).replace('<svg ','<svg class="gen" '));
+  document.querySelectorAll('.piece .pat[data-gen]').forEach((el,i)=>{const k=el.dataset.gen;const cfg={feed:{cols:32,rows:16,seed:11},slide:{cols:40,rows:12,seed:17,maxDensity:.8},og:{cols:36,rows:14,seed:29}}[k]||{cols:32,rows:16,seed:3};el.innerHTML=genDissolve(cfg)});
+
+  // reveal
+  const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  if(matchMedia('print').matches) document.querySelectorAll('.reveal').forEach(el=>el.classList.add('show'));
+  window.addEventListener('beforeprint',()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('show')));
+
+  // toast + copy
+  const toast=document.getElementById('toast');let tt;
+  function showToast(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),1800)}
+  function copy(text,msg){
+    const done=()=>showToast(msg);
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(done)}
+    else{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(e){}t.remove();done()}
+  }
+  document.querySelectorAll('.sw').forEach(sw=>sw.addEventListener('click',()=>{const h=sw.dataset.hex;copy(h,(h.startsWith('#')?h:'CSS')+' copiado!')}));
+  document.querySelectorAll('.sw').forEach(sw=>sw.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sw.click()}}));
+
+  // scroll-spy
+  const spyLinks=[...document.querySelectorAll('nav.top a[href^="#"]')];
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){spyLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+  spyLinks.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)spy.observe(s)});
+
+  // tokens css
+  document.getElementById('copyCss').addEventListener('click',()=>copy(document.getElementById('cssTokens').textContent,'CSS copiado!'));
+
+  // markdown export
+  const md=document.getElementById('ai-context').textContent.trim();
+  const out=document.getElementById('mdOut');
+  document.getElementById('genMd').addEventListener('click',()=>{out.value=md;out.style.display='block';document.getElementById('copyMd').style.display='inline-flex';document.getElementById('dlMd').style.display='inline-flex';out.scrollIntoView({behavior:'smooth',block:'nearest'})});
+  document.getElementById('copyMd').addEventListener('click',()=>copy(out.value,'Markdown copiado!'));
+  document.getElementById('dlMd').addEventListener('click',()=>{const b=new Blob([out.value],{type:'text/markdown;charset=utf-8'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='stack-brand-context.md';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u)});
+
+  // nav offset
+  document.querySelectorAll('nav.top a[href^="#"]').forEach(a=>a.addEventListener('click',ev=>{const t=document.querySelector(a.getAttribute('href'));if(t){ev.preventDefault();scrollTo({top:t.getBoundingClientRect().top+scrollY-52,behavior:'smooth'})}}));
+</script>
+</body>
+</html>
