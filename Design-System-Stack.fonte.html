@@ -140,7 +140,11 @@
 
   /* ---------- logo ---------- */
   .logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
-  .logo-tile{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px}
+  .logo-tile{height:214px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px}
+  .logo-tile .dl{display:flex;gap:6px}
+  .logo-tile .dl button{font-family:var(--font);font-weight:700;font-size:10.5px;line-height:1;letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .logo-tile .dl button:hover{background:var(--lime);color:#000;border-color:var(--lime)}
+  .lt-lime .dl button:hover{background:#000;color:var(--lime);border-color:#000}
   .logo-tile svg{height:34px;width:auto}
   .logo-tile.stk svg{height:70px}
   .logo-tile.lk svg{height:52px}
@@ -530,7 +534,8 @@
     *{animation:none !important}
     .hero{min-height:1810px;height:1810px;break-after:page}
     .section{padding:48px 0;break-before:page}
-    .logo-tile{height:128px}
+    .logo-tile{height:150px}
+    .logo-tile .dl{display:none}
     .wrong > div{height:92px}
     .llm-block{display:none !important}
     h2.title,h3.sub{break-after:avoid}
@@ -601,6 +606,7 @@
     <p>Fundamentos e componentes para criar qualquer peça da Stack — do anúncio ao slide, da página ao e-mail — com a mesma clareza do key visual. As regras de comunicação ficam no contexto para IA, na última seção.</p>
     <div class="meta">
       <div><b>Marca</b>Stack by PM3 &amp; Alura</div>
+      <div><b>Site oficial</b><a href="https://stack.com.br" target="_blank" rel="noopener" style="color:var(--lime);text-decoration:none">stack.com.br ↗</a></div>
       <div><b>Fontes</b>Brandbook v1.1 · Key Visual · stack.com.br · Pesquisa com a base (91 respostas) · Régua Stack v2.0</div>
       <div><b>Uso</b>Interno &amp; parceiros</div>
     </div>
@@ -642,16 +648,17 @@
     <p class="lead reveal">O logotipo Stack é um wordmark em caixa alta, geométrico, com o <b style="color:#fff">A</b> sem travessão e o <b style="color:#fff">K</b> aberto. Não existe símbolo separado. Ele aparece em três cores — lima, preto e branco — e em três arranjos: horizontal, empilhado e com a assinatura das marcas-mãe. Use sempre os SVGs desta pasta; nunca recrie, distorça ou recolorize.</p>
 
     <div class="logo-grid reveal" style="margin-top:44px">
-      <div class="logo-tile lt-black" style="color:var(--lime)"><svg><use href="#s-wordmark"/></svg><small>Lima sobre preto — versão principal</small></div>
-      <div class="logo-tile lt-white"><svg><use href="#s-wordmark"/></svg><small>Preto sobre branco — documentos e fundos claros</small></div>
-      <div class="logo-tile lt-lime"><svg><use href="#s-wordmark"/></svg><small>Preto sobre lima — capas e blocos de destaque</small></div>
-      <div class="logo-tile lt-dark"><svg><use href="#s-wordmark"/></svg><small>Branco sobre dark — interface e vídeo</small></div>
-      <div class="logo-tile lt-grey"><svg><use href="#s-wordmark"/></svg><small>Preto sobre cinza — uso raro, só em fundo neutro</small></div>
-      <div class="logo-tile lt-black stk" style="color:var(--lime)"><svg><use href="#s-stacked"/></svg><small>Empilhado — avatar, favicon, selo, crachá</small></div>
-      <div class="logo-tile lt-white stk"><svg><use href="#s-stacked"/></svg><small>Empilhado preto — fundo claro</small></div>
-      <div class="logo-tile lt-black lk"><svg class="lg two"><use href="#s-lockup"/></svg><small>Com assinatura “by PM3 &amp; alura” — fundo escuro</small></div>
-      <div class="logo-tile lt-white lk"><svg><use href="#s-lockup"/></svg><small>Com assinatura — fundo claro, tudo em preto</small></div>
+      <div class="logo-tile lt-black" style="color:var(--lime)" data-sym="s-wordmark" data-fill="#E7FF00" data-bg="#000000" data-name="stack-wordmark-lima"><svg><use href="#s-wordmark"/></svg><small>Lima sobre preto — versão principal</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-white" data-sym="s-wordmark" data-fill="#000000" data-bg="#FFFFFF" data-name="stack-wordmark-preto"><svg><use href="#s-wordmark"/></svg><small>Preto sobre branco — documentos e fundos claros</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-lime" data-sym="s-wordmark" data-fill="#000000" data-bg="#E7FF00" data-name="stack-wordmark-preto-sobre-lima"><svg><use href="#s-wordmark"/></svg><small>Preto sobre lima — capas e blocos de destaque</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-dark" data-sym="s-wordmark" data-fill="#FFFFFF" data-bg="#121212" data-name="stack-wordmark-branco"><svg><use href="#s-wordmark"/></svg><small>Branco sobre dark — interface e vídeo</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-grey" data-sym="s-wordmark" data-fill="#000000" data-bg="#898989" data-name="stack-wordmark-preto-sobre-cinza"><svg><use href="#s-wordmark"/></svg><small>Preto sobre cinza — uso raro, só em fundo neutro</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-black stk" style="color:var(--lime)" data-sym="s-stacked" data-fill="#E7FF00" data-bg="#000000" data-name="stack-empilhado-lima"><svg><use href="#s-stacked"/></svg><small>Empilhado — avatar, favicon, selo, crachá</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-white stk" data-sym="s-stacked" data-fill="#000000" data-bg="#FFFFFF" data-name="stack-empilhado-preto"><svg><use href="#s-stacked"/></svg><small>Empilhado preto — fundo claro</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-black lk" data-sym="s-lockup" data-fill="#E7FF00" data-sig="#FFFFFF" data-bg="#000000" data-name="stack-by-pm3-alura-escuro"><svg class="lg two"><use href="#s-lockup"/></svg><small>Com assinatura “by PM3 &amp; alura” — fundo escuro</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
+      <div class="logo-tile lt-white lk" data-sym="s-lockup" data-fill="#000000" data-sig="#000000" data-bg="#FFFFFF" data-name="stack-by-pm3-alura-claro"><svg><use href="#s-lockup"/></svg><small>Com assinatura — fundo claro, tudo em preto</small><div class="dl"><button data-dl="svg">SVG</button><button data-dl="png">PNG</button><button data-dl="pngbg">PNG + fundo</button></div></div>
     </div>
+    <p class="reveal" style="margin-top:14px;font-size:13.5px">SVG é o arquivo oficial. O PNG é gerado na hora a partir do vetor, com 2400 px de largura: <b style="color:#fff">PNG</b> sai com fundo transparente; <b style="color:#fff">PNG + fundo</b> inclui a cor da variação.</p>
 
     <h3 class="sub reveal">Respiro e tamanho mínimo <span class="chip-prop">proposta</span></h3>
     <div class="clear-demo reveal">
@@ -898,7 +905,7 @@
 
 <footer>
   <svg class="lg two" style="height:44px"><use href="#s-lockup"/></svg>
-  <div>Design System · Stack by PM3 &amp; Alura · Versão 1.0 · <b>Outubro 2026</b> · Baseado no Brandbook v1.1, no key visual, em stack.com.br, na pesquisa com a base e na Régua Stack v2.0</div>
+  <div>Design System · Stack by PM3 &amp; Alura · Versão 1.0 · <b>Outubro 2026</b> · <a href="https://stack.com.br" target="_blank" rel="noopener" style="color:var(--lime)">stack.com.br</a> · Baseado no Brandbook v1.1, no key visual, em stack.com.br, na pesquisa com a base e na Régua Stack v2.0</div>
 </footer>
 
 <div class="toast" id="toast">Copiado!</div>
@@ -1088,6 +1095,30 @@ Brandbook Stack v1.1 (Stack Keyvisual/brandbook-stack.html) · Key visual (KV.pd
   const gp=document.getElementById('gatePat');if(gp)gp.innerHTML=genDissolve({cols:48,rows:10,seed:5,maxDensity:.85});
   const tg=document.getElementById('texGen');if(tg)tg.insertAdjacentHTML('afterbegin',genDissolve({cols:16,rows:14,seed:33}).replace('<svg ','<svg class="gen" '));
   document.querySelectorAll('.piece .pat[data-gen]').forEach((el,i)=>{const k=el.dataset.gen;const cfg={feed:{cols:32,rows:16,seed:11},slide:{cols:40,rows:12,seed:17,maxDensity:.8},og:{cols:36,rows:14,seed:29}}[k]||{cols:32,rows:16,seed:3};el.innerHTML=genDissolve(cfg)});
+
+  // ---------- download do logo (SVG oficial e PNG gerado a partir do vetor) ----------
+  function logoSvg(tile){
+    const sym=document.getElementById(tile.dataset.sym);
+    const vb=sym.getAttribute('viewBox');const [,,vw,vh]=vb.split(/\s+/).map(Number);
+    const fill=tile.dataset.fill,sig=tile.dataset.sig||fill;
+    return {w:vw,h:vh,svg:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+vb+'" width="'+vw+'" height="'+vh+'" style="color:'+fill+';--wm:'+fill+';--sig:'+sig+'">'+sym.innerHTML+'</svg>'};
+  }
+  function dlBlob(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000)}
+  function logoPng(tile,withBg){
+    const {w,h,svg}=logoSvg(tile);const W=2400,pad=Math.round(W*.06);const scale=(W-2*pad)/w;const H=Math.round(h*scale)+2*pad;
+    const img=new Image();const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'}));
+    img.onload=()=>{const c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');
+      if(withBg){ctx.fillStyle=tile.dataset.bg;ctx.fillRect(0,0,W,H)}
+      ctx.drawImage(img,pad,pad,W-2*pad,Math.round(h*scale));URL.revokeObjectURL(url);
+      c.toBlob(b=>{dlBlob(b,tile.dataset.name+(withBg?'-fundo':'')+'.png');showToast('PNG gerado · '+W+'×'+H+' px')},'image/png')};
+    img.onerror=()=>{URL.revokeObjectURL(url);showToast('Não foi possível gerar o PNG')};
+    img.src=url;
+  }
+  document.querySelectorAll('.logo-tile [data-dl]').forEach(b=>b.addEventListener('click',ev=>{
+    ev.stopPropagation();const tile=b.closest('.logo-tile'),k=b.dataset.dl;
+    if(k==='svg'){dlBlob(new Blob([logoSvg(tile).svg],{type:'image/svg+xml;charset=utf-8'}),tile.dataset.name+'.svg');showToast('SVG baixado')}
+    else logoPng(tile,k==='pngbg');
+  }));
 
   // reveal
   const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.08});
