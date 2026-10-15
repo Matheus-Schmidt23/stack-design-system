@@ -24,6 +24,7 @@ Design system da Stack by PM3 & Alura: logo, cores, tipografia, grid e grafismo 
 
 - O login pede a senha `pm3-admin-2026` (a mesma do guia PM3). A verificação é por hash SHA-256 no navegador e vale só como barreira leve; a sessão fica salva no navegador (chave `stack_ds_ok`), separada da do guia PM3.
 - Para alterar o guia: edite a fonte, regere o HTML autossuficiente (substituir cada `assets/...` por data URI base64) e o PDF (Chrome headless, `--print-to-pdf`).
+- Cada variação do logo tem botões de download: SVG oficial, PNG transparente e PNG com o fundo da variação (2400 px de largura, gerados no navegador a partir do vetor).
 - O padrão de pixels é gerado por JavaScript (função `genDissolve`) com as regras da seção Grid; o botão "Baixar SVG" exporta a variação exibida.
 - Itens marcados com o selo **proposta** (respiro do logo, fotografia, movimento) não estão no brandbook e podem ser revisados.
 - Fontes carregadas do Google Fonts: Roboto e Roboto Mono.
